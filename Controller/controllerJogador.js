@@ -18,6 +18,8 @@ exports.cadastro = (req, res) => {
             return;
         }
 
+        jogador.id = Math.floor(Math.random() * 1000000);
+
         con.registroJogador(jogador)
     }
 
