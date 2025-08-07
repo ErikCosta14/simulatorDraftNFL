@@ -26,7 +26,7 @@ class ConexaoBD {
         await colecao.insertOne(usuario);
     }
 
-    async buscarUsuario(usuario, senha) {
+    async verificaUsuario(usuario, senha) {
         await conexao_bd()
         const colecao = bd().collection('usuarios');
         var user = await colecao.findOne({usuario: usuario});
@@ -36,6 +36,24 @@ class ConexaoBD {
         } else {
             return false;
         }
+    }
+
+    async buscarUsuario(usuario) {
+        await conexao_bd()
+        const colecao = bd().collection('usuarios');
+        return await colecao.findOne({usuario: usuario});
+    }
+
+    async registroJogador(jogador) {
+        await conexao_bd()
+        const colecao = bd().collection('jogadores');
+        colecao.insertOne(jogador);
+    }
+
+    async buscarJogadores() {
+        await conexao_bd()
+        const colecao = bd().collection('jogadores');
+        return await colecao.find().toArray();
     }
 }
 
