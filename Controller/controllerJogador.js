@@ -5,8 +5,6 @@ exports.cadastroGet = (req, res) => {
 }
 
 exports.cadastroPost = (req, res) => {
-
-
     try {
         jogador = {
             id: Math.floor(Math.random() * 10000),
