@@ -1,52 +1,99 @@
-<div class="container-fluid back-branco">
-    <div class="card mb-5 mt-5 m-5 back-branco">
-        <div class="card-body card-externo">
-            <h3 class="card-title m-2">JOGADORES <a href="/jogadores" class="btn btn-danger">Ver Todos</a></h3>
-            <p class="card-text">
-            <div class="row">
-                {{#if jogadores.length}}
-                {{#each jogadores}}
-                <div class="col-sm-6 col-lg-4 mb-3 mb-sm-0">
+<div class="container-fluid back-branco p-3">
 
-                    {{!-- {{#each jogadores}} --}}
-                    <div class="card">
+    <div class="card-body card-externo mt-5 m-5 p-5">
+        <h3 class="card-title m-2">JOGADORES <a href="/jogadores" class="btn btn-danger">Ver Todos</a></h3>
+        <p class="card-text">
+        <div class="row">
+            {{#if jogadores.length}}
+            {{#each jogadores}}
+            <div class="col-sm-6 col-lg-4 mb-3 mb-sm-0">
 
-                        <div class="card-body card-interno">
+                {{!-- {{#each jogadores}} --}}
+                <div class="card">
 
-                            <div class="container text-center">
-                                <div class="row">
-                                    <div class="col">
-                                        <img src="{{this.imgJog}}" alt="Foto do atleta" class="conteudo-card"
-                                            style="width: 120px;">
-                                    </div>
-                                    <div class="col">
-                                        <p class="conteudo-card">Nome: <span
-                                                class="span-valor">{{this.nmJogador}}</span></p>
-                                        <p class="conteudo-card">Posição: <span
-                                                class="span-valor">{{this.posicao}}</span></p>
-                                        <p class="conteudo-card">Faculdade: <span
-                                                class="span-valor">{{this.faculdade}}</span></p>
-                                    </div>
+                    <div class="card-body card-interno">
+
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{{this.imgJog}}" alt="Foto do atleta" class="conteudo-card" id="imageJog">
+                                </div>
+                                <div class="col">
+                                    <p class="conteudo-card">Nome: <span class="span-valor">{{this.nmJogador}}</span>
+                                    </p>
+                                    <p class="conteudo-card">Posição: <span class="span-valor">{{this.posicao}}</span>
+                                    </p>
+                                    <p class="conteudo-card">Faculdade: <span
+                                            class="span-valor">{{this.faculdade}}</span></p>
                                 </div>
                             </div>
-
-                            <p class="card-text conteudo-card">
-                                Descrição: <span class="span-valor">
-                                    {{this.descJog}}
-                                </span>
-                            </p>
                         </div>
 
+                        <p class="card-text conteudo-card">
+                            Descrição: <span class="span-valor">
+                                {{this.descJog}}
+                            </span>
+                        </p>
                     </div>
-                    {{!-- {{/each}} --}}
 
                 </div>
-                {{/each}}
-                {{else}}
-                <h4 class="display-4"></h4>
-                {{/if}}
-            </div>
+                {{!-- {{/each}} --}}
 
+            </div>
+            {{/each}}
+            {{else}}
+            <h4 class="display-4 branco">Ainda Não há Jogadores cadastrados</h4>
+            {{/if}}
+        </div>
+
+    </div>
+
+
+
+
+    <div class="card-body card-externo m-5 p-5">
+        <h3 class="card-title m-2">FRANQUIAS <a href="/franquias" class="btn btn-danger">Ver Todos</a></h3>
+        <p class="card-text">
+        <div class="row">
+            {{#if franquias.length}}
+            {{#each franquias}}
+            <div class="col-sm-6 col-lg-4 mb-3 mb-sm-0">
+
+                {{!-- {{#each jogadores}} --}}
+                <div class="card">
+
+                    <div class="card-body card-interno">
+
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{{this.logo}}" alt="Foto do atleta" class="conteudo-card" id="imageFranquia">
+                                </div>
+                                <div class="col">
+                                    <p class="conteudo-card">Nome: <span class="span-valor">{{this.nmFranquia}}</span>
+                                    </p>
+                                    <p class="conteudo-card">Posição: <span class="span-valor">{{this.conferencia}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="card-text conteudo-card">
+                            Descrição: <span class="span-valor">
+                                {{this.descFranquia}}
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+                {{!-- {{/each}} --}}
+
+            </div>
+            {{/each}}
+            {{else}}
+            <h4 class="display-4 branco">Ainda Não há Franquias cadastradas</h4>
+            {{/if}}
         </div>
     </div>
+
 </div>

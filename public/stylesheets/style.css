@@ -138,6 +138,14 @@ ul{
    font-size: 1.2rem;
 }
 
+#imageJog{
+    width: 120px;
+}
+
+#imageFranquia{
+    width: 120px;
+}
+
 .span-valor{
     background-color: #fcfdfe;
     color: #000010dc;
@@ -165,10 +173,13 @@ textarea{
 }
 
 footer{
+    width: 100%;
+    height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #013369;
 }
 
 .footer-text{
