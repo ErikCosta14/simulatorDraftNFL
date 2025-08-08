@@ -7,9 +7,9 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 /* GET */
-router.get('/jogador', controllerJogador.cadastro);
+router.get('/jogador', controllerJogador.cadastroGet);
 
 /* POST */
-router.post('/jogador', upload.single('image'), controllerJogador.cadastro);
+router.post('/jogador', upload.single('imgJog'), controllerJogador.cadastroPost);
 
 module.exports = router;

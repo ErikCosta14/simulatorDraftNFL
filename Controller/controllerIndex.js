@@ -28,8 +28,8 @@ exports.index = async (req, res) => {
             return jogador;
         });
 
-        res.render('index', { title: 'Tela Inicial', jogadores: jogadoresComImagem, usuario: user });
+        res.render('index', { title: 'Tela Inicial', jogadores: jogadoresComImagem, franquia:false});
     } else {
-        res.render('login', { title: 'Tela de Login' });
+        res.render('login', { title: 'Tela de Login', franquia:false });
     }
 }

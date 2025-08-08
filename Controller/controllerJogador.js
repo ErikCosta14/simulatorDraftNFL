@@ -1,27 +1,34 @@
 const con = require('../Model/conexaoBD');
 
-exports.cadastro = (req, res) => {
-    jogador = req.body;
+exports.cadastroGet = (req, res) => {
+    res.render('cadastroJogador', { title: 'Cadastro de Jogador', franquia:false});
+}
 
-    if (jogador.nmJogador != undefined && jogador.nmJogador != null && jogador.nmJogador != '') {
-        try {
-            jogador.idade = parseInt(jogador.idade);
-            jogador.altura = parseFloat(jogador.altura);
-            jogador.peso = parseFloat(jogador.peso);
-            jogador.imgJog = {
+exports.cadastroPost = (req, res) => {
+
+
+    try {
+        jogador = {
+            id: Math.floor(Math.random() * 10000),
+            nmJogador: req.body.nmJogador,
+            posicao: req.body.posicao,
+            faculdade:req.body.faculdade,
+            descJog: req.body.descJog,
+            idade: parseInt(req.body.idade),
+            altura: parseFloat(req.body.altura),
+            peso: parseFloat(req.body.peso),
+            imgJog: {
                 data: req.file.buffer,
                 contentType: req.file.mimetype
             }
-        } catch (error) {
-            console.error('Erro ao cadastrar jogador:', error);
-            res.status(500).send('Erro ao cadastrar jogador');
-            return;
         }
-
-        jogador.id = Math.floor(Math.random() * 1000000);
-
-        con.registroJogador(jogador)
+    } catch (error) {
+        console.error('Erro ao cadastrar jogador:', error);
+        res.status(500).send('Erro ao cadastrar jogador');
+        return;
     }
 
-    res.render('cadastroJogador', { title: 'Cadastro de Jogador' });
+    con.registroJogador(jogador)
+
+    res.redirect('/')
 }
