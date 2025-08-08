@@ -12,6 +12,10 @@ ul{
     align-items: center;
 }
 
+.back-branco{
+    background-color: #fcfdfe;
+}
+
 .branco{
     color: #fcfdfe;
 }
@@ -22,6 +26,10 @@ ul{
 
 .azul{
     color: #013369;
+}
+
+.rigth{
+    text-align: right;
 }
 
 .dropdown-menu{
@@ -38,14 +46,6 @@ ul{
 
 .perfil{
     font-size: 3rem;
-}
-
-.logo-div{
-    width: 100%;
-    height: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .logo-div{
@@ -112,6 +112,57 @@ ul{
     outline: none;
 }
 
+.card-externo{
+    border-radius: 8px;
+}
+
+.card-title{
+    display: flex;
+    justify-content: space-between;
+    color: #fcfdfe;
+}
+
+.card-interno{
+    background-color: #fcfdfe;
+    border-radius: 5px;
+}
+
+.col{
+   background-color: #fcfdfe; 
+}
+
+.conteudo-card{
+   background-color: #fcfdfe;  
+   color: #D50A0A;
+   font-size: 1.2rem;
+}
+
+.span-valor{
+    background-color: #fcfdfe;
+    color: #000010dc;
+}
+
+.label-cad-jog{
+    text-align: right;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; 
+}
+
+textarea{
+    resize: none;
+    border-radius: 5px;
+}
+
+.btn-cad-jog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 footer{
     display: flex;
     flex-direction: column;
@@ -123,3 +174,4 @@ footer{
     margin: 10px;
     font-size: 1.4rem;
 }
+

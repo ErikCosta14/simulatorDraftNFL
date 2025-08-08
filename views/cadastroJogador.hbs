@@ -1,0 +1,94 @@
+<form action="/cadsatro/jogador" method="post" enctype="multipart/form-data" class="m-5 back-branco">
+    <div class="row g-3 back-branco">
+        <div class="col-lg-1 rigth back-branco">
+            <label for="nmJogador" class="back-branco m-1">Nome:</label>
+        </div>
+
+        <div class="col-lg-4 back-branco">
+            <input type="text" class="form-control back-branco" name="nmJogador" id="nmJogador" aria-label="nmJogador">
+        </div>
+
+        <div class="col-lg-1 rigth back-branco">
+            <label for="posicao" class="back-branco m-1">Posição:</label>
+        </div>
+
+        <div class="col-lg-1 back-branco">
+            <select name="posicao" id="posicao" class="form-select back-branco">
+                <option value="qb" class="back-branco">QB</option>
+                <option value="rb" class="back-branco">RB</option>
+                <option value="edge" class="back-branco">EDGE</option>
+                <option value="dt" class="back-branco">DT</option>
+            </select>
+        </div>
+
+        <div class="col-lg-2 rigth back-branco">
+            <label for="idade" class="back-branco m-1">Idade:</label>
+        </div>
+
+        <div class="col-lg-1 back-branco">
+            <input type="number" class="form-control back-branco" name="idade" id="idade" aria-label="idade">
+        </div>
+
+    </div>
+
+    <div class="row g-3 mt-5 back-branco">
+        <div class="col-lg-1 rigth back-branco">
+            <label for="faculdade" class="back-branco m-1">Faculdade:</label>
+        </div>
+
+        <div class="col-lg-4 back-branco">
+            <input type="text" class="form-control back-branco" name="faculdade" id="faculdade" aria-label="faculdade">
+        </div>
+
+        <div class="col-lg-1 rigth back-branco">
+            <label for="altura" class="back-branco m-1">Altura:</label>
+        </div>
+
+        <div class="col-lg-1 back-branco">
+            <input type="number" class="form-control back-branco" name="altura" id="altura" aria-label="altura">
+        </div>
+
+        <div class="col-lg-2 rigth back-branco">
+            <label for="peso" class="back-branco m-1">Peso:</label>
+        </div>
+
+        <div class="col-lg-1 back-branco">
+            <input type="number" class="form-control back-branco" name="peso" id="peso" aria-label="peso">
+        </div>
+
+    </div>
+
+    <div class="row g-3 mt-5 back-branco">
+        <div class="col-lg-1 rigth back-branco">
+            <label for="descJog" class="back-branco m-1">Descrição:</label>
+        </div>
+    </div>
+
+    <div class="row g-3 mt-1 back-branco">
+        <div class="col-lg-10 mt-1 m-5 back-branco">
+            <textarea class="form-control back-branco" id="descJog" name="descJog" rows="6" cols="155">
+
+                </textarea>
+        </div>
+    </div>
+
+    <div class="row g-3 mt-1 back-branco">
+        <div class="col-lg-1 rigth back-branco">
+            <label for="imgJog" class="back-branco">Foto:</label>
+        </div>
+
+        <div class="col-lg-1 back-branco">
+            <input type="file" name="imgJog" accept="image/*" class="back-branco">
+        </div>
+
+    </div>
+
+    <div class="btn-cad-jog back-branco">
+        <button type="submit" class="btn btn-primary m-2">Cadastrar</button>
+
+        <a href="/" class="back-branco">
+            <button type="button" class="btn btn-danger m-2">Cancelar</button>
+        </a>
+    </div>
+
+</form>
