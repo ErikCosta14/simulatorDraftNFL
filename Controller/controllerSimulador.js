@@ -1,15 +1,18 @@
 const con = require('../Model/conexaoBD');
+const infUser = require('../Model/infoConect')
 
-var jogSelect = {}
-var jogNoSelect = {}
-var franquias = {}
+var jogSelect = []
+var jogNoSelect = []
+var franquias = []
 var pickAtual;
 var rodada;
+var nomeSim;
+var inicio = false;
 
 exports.simuladorGet = async (req, res) => {
     var idFranq = parseInt(req.params.idFranq)
 
-    res.render('simulador', {title:'Simulador', idFranquia: idFranq, inicio: false})
+    res.render('simulador', {title:'Simulador', idFranquia: idFranq, inicio: inicio})
 }
 
 exports.iniciar = async (req, res) => {
@@ -32,5 +35,30 @@ exports.iniciar = async (req, res) => {
     pickAtual = 1;
     rodada = 1;
 
-    
+    nomeSim = req.body.nmSimulacao
+
+    inicio = true;
+
+    var fr = controllerIndex.idFranquia
+
+    var pagInfo = {
+        title: 'Simulador', 
+        idFranquia: infUser.id,
+        inicio: inicio, 
+        rodada: rodada,
+        pick: pickAtual, 
+        jogadores: jogNoSelect, 
+        franquia: true
+    }
+
+    res.render('simulador', pagInfo)
+}
+
+exports.cancelar = async (req, res) => {
+    jogNoSelect = [];
+    franquias = [];
+    pickAtual = 0;
+    rodada = 0;
+    nomeSim = "";
+    inicio = false;
 }

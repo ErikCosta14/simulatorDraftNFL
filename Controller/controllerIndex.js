@@ -1,10 +1,13 @@
 const con = require('../Model/conexaoBD');
+var infUser = require('../Model/infoConect');
+
+var conectado = true;
+var usuario;
+var senha;
 
 exports.index = async (req, res) => {
-    var conectado = true;
-    var usuario = req.body.usuario;
-    var senha = req.body.senha;
-    var user;
+    usuario = req.body.usuario;
+    senha = req.body.senha;
     
     // if(senha != undefined && senha != null && senha != '') {
     //     conectado = await con.verificaUsuario(usuario, senha);
@@ -13,6 +16,9 @@ exports.index = async (req, res) => {
     if (conectado) {
         if (usuario != "admin") {
             user = true;
+
+            var fr = await con.carregarFranquia(usuario);
+            infUser = new User(fr.id, usuario);
         }
     
         var jogadores = await con.buscarJogadores();

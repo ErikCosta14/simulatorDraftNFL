@@ -4,7 +4,8 @@ var controllerSimulador = require('../Controller/controllerSimulador');
 
 /* GET */
 router.get('/:idFranq', controllerSimulador.simuladorGet);
-router.get('iniciar')
+router.get('iniciar', controllerSimulador.iniciar);
+router.get('/cancelar')
 
 /* POST */
 
