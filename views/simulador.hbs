@@ -63,22 +63,23 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="back-branco">
-                <td><img src="" alt="Foto do Jogador" id="imageJog"></td>
-                <td>{{nmJogador}}</td>
-                <td>{{posicao}}</td>
-                <td>
-                    <a href="/jogadores/verdetalhes/{{idJog}}" class="back-branco link-sim">
-                        <button type="submit" class="btn btn-danger m-2">Ver Detalhes</button>
-                    </a>
-                </td>
-                <td>
-                    <a href="/jogadores/selecionar/{{idJog}}" class="back-branco link-sim">
-                        <button type="submit" class="btn btn-primary m-2">Selecionar</button>
-                    </a>
-                </td>
-
-            </tr>
+            {{#each jogadores}}
+                <tr class="back-branco">
+                    <td><img src="{{this.imgJog}}" alt="Foto do Jogador" id="imageJog"></td>
+                    <td>{{this.nmJogador}}</td>
+                    <td>{{this.posicao}}</td>
+                    <td>
+                        <a href="/jogadores/verdetalhes/{{idJog}}" class="back-branco link-sim">
+                            <button type="submit" class="btn btn-danger m-2">Ver Detalhes</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/jogadores/selecionar/{{idJog}}" class="back-branco link-sim">
+                            <button type="submit" class="btn btn-primary m-2">Selecionar</button>
+                        </a>
+                    </td>
+                </tr>
+            {{/each}}
         </tbody>
     </table>
 

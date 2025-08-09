@@ -1,0 +1,38 @@
+<h3 class="m-5 back-branco red">Detalhes: <span>{{franquias.nmFranquia}}</span></h3>
+
+<div class="back-branco consulta-container">
+    <div class="back-branco">
+        <p class="m-5 back-branco red">Estado: <span class="back-branco azul">{{franquias.estado}}</span></p>
+        <p class="m-5 back-branco red">Cidade: <span class="back-branco azul">{{franquias.cidade}}</span></p>
+        <p class="m-5 back-branco red">Conferencia: <span class="back-branco azul">{{franquias.conferencia}} cm</span></p>
+        <p class="m-5 back-branco red">Descrição: <span class="back-branco azul">{{franquias.descFranq}}</span></p>
+    </div>
+
+    <div class="back-branco">
+        <img src="{{logo}}" alt="Imagem do Jogador" class="back-branco img-consulta">
+    </div>
+</div>
+
+<div class="btn-container m-5">
+    <div class="back-branco m-2">
+        <a href="/">
+            <button class="btn btn-secondary">Voltar</button>
+        </a>
+    </div>
+
+    {{#if adimin}}
+    <div class="back-branco m-2">
+        <a href="/">
+            <button class="btn btn-warning">Editar</button>
+        </a>
+    </div>
+
+    <div class="back-branco m-2">
+        <a href="/">
+            <button class="btn btn-danger">Deletar</button>
+        </a>
+    </div>
+    {{/if}}
+
+
+</div>

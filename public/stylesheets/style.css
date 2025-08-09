@@ -206,6 +206,23 @@ textarea{
     border: solid #000010dc;
 }
 
+.consulta-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    background-color: #fcfdfe;
+}
+
+.img-consulta{
+    width: 300px;
+}
+
 
 footer{
     width: 100%;
