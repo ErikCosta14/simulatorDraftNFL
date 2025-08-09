@@ -66,6 +66,18 @@ class ConexaoBD {
         const colecao = bd().collection('franquias');
         return await colecao.find().toArray();
     }
+
+    async buscarHistoricos(idFranquia) {
+        await conexao_bd()
+        const colecao = bd.collection('simulacoes');
+        return await colecao.find({idFranquia: idFranquia}).toArray();
+    }
+
+    async carregarSimulacao(idSimulacao) {
+        await conexao_bd()
+        const colecao = bd.collection('simulacoes');
+        return await colecao.find({idSimulacao: idSimulacao});
+    }
 }
 
 module.exports = new ConexaoBD();
