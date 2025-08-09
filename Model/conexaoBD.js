@@ -55,6 +55,17 @@ class ConexaoBD {
         const colecao = bd().collection('jogadores');
         return await colecao.find().toArray();
     }
+    async registroFranquia(franquia) {
+        await conexao_bd()
+        const colecao = bd().collection('franquias');
+        colecao.insertOne(franquia);
+    }
+
+    async buscarFranquias() {
+        await conexao_bd()
+        const colecao = bd().collection('franquias');
+        return await colecao.find().toArray();
+    }
 }
 
 module.exports = new ConexaoBD();
