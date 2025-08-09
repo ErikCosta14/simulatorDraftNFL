@@ -28,7 +28,20 @@ exports.index = async (req, res) => {
             return jogador;
         });
 
-        res.render('index', { title: 'Tela Inicial', jogadores: jogadoresComImagem, franquia:false});
+        var franquias = await con.buscarFranquias();
+
+        const franquiasComImagem = franquias.map(franquia => {
+            if(franquia.logo && franquia.logo.data) {
+                const base64Image = franquia.logo.data.toString('base64');
+                return {
+                    ...franquia,
+                    logo: `data:${franquia.logo.contentType};base64,${base64Image}`
+                }
+            }
+            return franquia;
+        });
+
+        res.render('index', { title: 'Tela Inicial', jogadores: jogadoresComImagem, franquias: franquiasComImagem, franquia:false});
     } //else {
     //     res.render('login', { title: 'Tela de Login', franquia:false });
     // }

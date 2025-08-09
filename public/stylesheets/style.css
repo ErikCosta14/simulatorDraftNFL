@@ -126,6 +126,7 @@ ul{
 .card-interno{
     background-color: #fcfdfe;
     border-radius: 5px;
+    height: 350px;
 }
 
 .col{
@@ -133,6 +134,7 @@ ul{
 }
 
 .conteudo-card{
+    text-align: left;
    background-color: #fcfdfe;  
    color: #D50A0A;
    font-size: 1.2rem;
