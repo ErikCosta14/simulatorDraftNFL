@@ -16,6 +16,10 @@ ul{
     background-color: #fcfdfe;
 }
 
+.back-red{
+    background-color: #D50A0A;
+}
+
 .branco{
     color: #fcfdfe;
 }
@@ -30,6 +34,10 @@ ul{
 
 .rigth{
     text-align: right;
+}
+
+.center{
+    text-align: center;
 }
 
 .dropdown-menu{
@@ -173,6 +181,31 @@ textarea{
     justify-content: center;
     align-items: center;
 }
+
+.table-sim{
+    width: 60%;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+}
+
+.link-sim{
+    color: #000010dc;
+    text-decoration: none;
+}
+
+.consulta-sim{
+    width: 60%;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+}
+
+.card-pick{
+    width: 15rem;
+    border: solid #000010dc;
+}
+
 
 footer{
     width: 100%;
