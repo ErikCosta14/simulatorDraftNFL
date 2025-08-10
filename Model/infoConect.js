@@ -8,4 +8,4 @@ class User {
     }
 }
 
-module.exports = infUser
+module.exports = User

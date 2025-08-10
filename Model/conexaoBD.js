@@ -75,7 +75,7 @@ class ConexaoBD {
 
     async buscarHistoricos(idFranquia) {
         await conexao_bd()
-        const colecao = bd.collection('simulacoes');
+        const colecao = bd().collection('simulacoes');
         return await colecao.find({idFranquia: idFranquia}).toArray();
     }
 

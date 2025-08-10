@@ -4,6 +4,7 @@ var infUser = require('../Model/infoConect');
 var conectado = false;
 var usuario;
 var senha;
+var user;
 
 exports.index = async (req, res) => {
     usuario = req.body.usuario;
@@ -11,14 +12,14 @@ exports.index = async (req, res) => {
     
     if(senha != undefined && senha != null && senha != '') {
         conectado = await con.verificaUsuario(usuario, senha);
+        var fr = await con.buscarUsuario(usuario);
+            infUser.usuario = usuario
+            infUser.id = fr.id
     }
 
     if (conectado) {
         if (usuario != "admin") {
-            user = true;
-
-            var fr = await con.carregarFranquia(usuario);
-            infUser = new User(fr.id, usuario);
+            user = true
         }
     
         var jogadores = await con.buscarJogadores();
@@ -60,7 +61,7 @@ exports.index = async (req, res) => {
             }
         }
 
-        res.render('index', { title: 'Tela Inicial', jogadores: jogs, franquias: fran, franquia:false});
+        res.render('index', { title: 'Tela Inicial', jogadores: jogs, franquias: fran, franquia:user, idFranquia: infUser.id});
     } else {
         res.render('login', { title: 'Tela de Login', franquia:false });
     }
