@@ -1,7 +1,7 @@
 const con = require('../Model/conexaoBD');
 var infUser = require('../Model/infoConect');
 
-var conectado = true;
+var conectado = false;
 var usuario;
 var senha;
 
@@ -9,9 +9,9 @@ exports.index = async (req, res) => {
     usuario = req.body.usuario;
     senha = req.body.senha;
     
-    // if(senha != undefined && senha != null && senha != '') {
-    //     conectado = await con.verificaUsuario(usuario, senha);
-    // }
+    if(senha != undefined && senha != null && senha != '') {
+        conectado = await con.verificaUsuario(usuario, senha);
+    }
 
     if (conectado) {
         if (usuario != "admin") {
@@ -61,7 +61,7 @@ exports.index = async (req, res) => {
         }
 
         res.render('index', { title: 'Tela Inicial', jogadores: jogs, franquias: fran, franquia:false});
-    } //else {
-    //     res.render('login', { title: 'Tela de Login', franquia:false });
-    // }
+    } else {
+        res.render('login', { title: 'Tela de Login', franquia:false });
+    }
 }

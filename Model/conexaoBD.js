@@ -84,6 +84,24 @@ class ConexaoBD {
         const colecao = bd.collection('simulacoes');
         return await colecao.find({idSimulacao: idSimulacao});
     }
+
+    async registarSimulacao(simulacao) {
+        await conexao_bd()
+        const colecao = bd.collection('simulacoes');
+        colecao.insertOne(simulacao)
+    }
+
+    async registrarPick(pick) {
+        await conexao_bd()
+        const colecao = bd.collection('picks');
+        colecao.insertOne(pick)
+    }
+
+    async carregarPick(idSimulacao) {
+        await conexao_bd()
+        const colecao = bd.collection('simulacoes');
+        return await colecao.find({idSimulacao: idSimulacao}).toArray();
+    }
 }
 
 module.exports = new ConexaoBD();
