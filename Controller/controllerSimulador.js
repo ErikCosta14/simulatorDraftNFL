@@ -10,6 +10,7 @@ var pickAtual;
 var numEsc;
 var rodada;
 var nomeSim;
+var ini;
 
 exports.simuladorGet = async (req, res) => {
     var idFranq = parseInt(req.params.idFranq)
@@ -19,7 +20,38 @@ exports.simuladorGet = async (req, res) => {
     var pagInfo = {
         title: 'Simulador',
         idFranquia: idFranq,
-        inicio: false, 
+        inicio: ini, 
+        rodada: rodada,
+        pick: pickAtual, 
+        jogadores: jogNoSelect, 
+        picksIniciais: picksIniciais,
+        todasPicks: todasPicks,
+        franquia: true
+    }
+
+    res.render('simulador', pagInfo)
+}
+
+exports.cancelar = async (req, res) => {
+    var idFranq = parseInt(req.params.idFranq)
+    
+    jogSelect = [];
+    jogNoSelect = [];
+    franquias = [];
+    picksIniciais = [];
+    todasPicks = [];
+    numEsc = 0;
+    pickAtual = 0;
+    rodada = 0;
+    nomeSim = "";
+    ini = false;
+
+    infUser.id = idFranq;
+
+    var pagInfo = {
+        title: 'Simulador',
+        idFranquia: idFranq,
+        inicio: ini, 
         rodada: rodada,
         pick: pickAtual, 
         jogadores: jogNoSelect, 
@@ -42,6 +74,7 @@ exports.iniciar = async (req, res) => {
     pickAtual = 0;
     rodada = 0;
     nomeSim = "";
+    ini = false;
 
     var jogs = await con.buscarJogadores()
     var franq = await con.buscarFranquias()
@@ -73,6 +106,7 @@ exports.iniciar = async (req, res) => {
     numEsc = 0;
     pickAtual = 1;
     rodada = 1;
+    ini = true;
 
     nomeSim = req.body.nmSimulacao
 
@@ -82,7 +116,7 @@ exports.iniciar = async (req, res) => {
     var pagInfo = {
         title: 'Simulador', 
         idFranquia: infUser.id,
-        inicio: true, 
+        inicio: ini, 
         rodada: rodada,
         pick: pickAtual, 
         jogadores: jogNoSelect,  
@@ -114,7 +148,7 @@ exports.selecionar = async (req, res) => {
     var pagInfo = {
         title: 'Simulador', 
         idFranquia: infUser.id,
-        inicio: true, 
+        inicio: ini, 
         rodada: rodada,
         pick: pickAtual, 
         jogadores: jogNoSelect,  
@@ -128,53 +162,47 @@ exports.selecionar = async (req, res) => {
 
 exports.finalizar = async (req, res) => {
     var idFr = parseInt(req.params.idFranq)
-    var idSim = Math.floor(Math.random() * 10000);
-    
-    var simulacao = {
-        idFranquia: idFr,
-        idSimulacao: idSim,
-        nmSimulacao: nomeSim,
-        rodadas: rodada,
-        numJogs: jogSelect.length,
-    }
-    
-    console.log(simulacao)
-    await con.registarSimulacao(simulacao)
-    
-    var f = 0;
-    var rod = 0;
-    for(var i = 0; i < jogSelect.length; i++){
-        var pick = {
+
+    if((jogSelect.length > 0) && (nomeSim != "")){
+        var idSim = Math.floor(Math.random() * 10000);
+        
+        if(jogSelect.length % franquias.length != 0){
+            jogSelect.pop()
+        }
+
+        var f = 0;
+        var rod = 0;
+        for(var i = 0; i < jogSelect.length; i++){
+            var pick = {
+                idSimulacao: idSim,
+                pick: i+1,
+                rodada: rod+1,
+                nmFranquia: franquias[f].nmFranquia,
+                nmJogador: jogSelect[i].nmJogador,
+                posicao: jogSelect[i].posicao
+            }
+
+            f++;
+
+            if(f >= franquias.length) {
+                rod++;
+                f = 0;
+            }
+
+            await con.registrarPick(pick);
+
+            ini = false;
+        }
+
+        var simulacao = {
+            idFranquia: idFr,
             idSimulacao: idSim,
-            pick: i+1,
-            rodada: rod+1,
-            nmFranquia: franquias[f].nmFranquia,
-            nmJogador: jogSelect[i].nmJogador,
-            posicao: jogSelect[i].posicao
+            nmSimulacao: nomeSim,
+            rodadas: rod,
+            numJogs: jogSelect.length,
         }
-
-        f++;
-
-        if(f >= franquias.length) {
-            rod++;
-            f = 0;
-        }
-
-        console.log(pick)
-
-        await con.registrarPick(pick);
-    }
-
-    var pagInfo = {
-        title: 'Simulador', 
-        idFranquia: infUser.id,
-        inicio: false,
-        rodada: 0,
-        pick: 0, 
-        jogadores: [],  
-        picksIniciais: [],
-        todasPicks: [],
-        franquia: true
+    
+        await con.registarSimulacao(simulacao)
     }
 
     var rota = '/simulador/' + idFr
@@ -220,16 +248,4 @@ async function addPicks() {
             }
         }
     }
-}
-
-async function zerarVariaveis() {
-    jogSelect = [];
-    jogNoSelect = [];
-    franquias = [];
-    picksIniciais = []
-    todasPicks = []
-    pickAtual = 0;
-    numEsc = 0;
-    rodada = 0;
-    nomeSim = "";
 }

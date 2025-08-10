@@ -12,11 +12,7 @@ exports.carregarSimulacao = async (req, res) => {
     var idSim = parseInt(req.params.idSim)
 
     var simulacao = await con.carregarSimulacao(idSim);
-    console.log(simulacao[0].rodadas)
-    console.log(simulacao[0].nmSimulacao)
     var picks = await con.carregarPick(idSim);
-    console.log(picks[0].nmJogador)
-    console.log(picks[0].rodada)
 
     var escolhas = [];
 
@@ -29,10 +25,12 @@ exports.carregarSimulacao = async (req, res) => {
             }
         }
 
+        
         escolhas.push({
             rodada: i+1,
             escolha: vetPicks
         })
+        
     }
 
     var infoPag = {
