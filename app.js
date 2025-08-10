@@ -9,8 +9,9 @@ var usersRouter = require('./routes/users');
 var cadastroRouter = require('./routes/cadastro');
 var historicoRouter = require('./routes/historico');
 var simuladorRouter = require('./routes/simulador');
-var apiRouter = require('./routes/api');
 var jogadorRouter = require('./routes/jogador');
+var franquiaRouter = require('./routes/franquia');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -29,8 +30,9 @@ app.use('/users', usersRouter);
 app.use('/cadastro', cadastroRouter);
 app.use('/historico', historicoRouter);
 app.use('/simulador', simuladorRouter);
-app.use('/api', apiRouter);
 app.use('/jogadores', jogadorRouter);
+app.use('/franquias', franquiaRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

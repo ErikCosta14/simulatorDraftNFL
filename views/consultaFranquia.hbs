@@ -1,15 +1,15 @@
-<h3 class="m-5 back-branco red">Detalhes: <span>{{franquias.nmFranquia}}</span></h3>
+<h3 class="m-5 back-branco red">Detalhes: <span>{{franquiaMostrar.nmFranquia}}</span></h3>
 
 <div class="back-branco consulta-container">
     <div class="back-branco">
-        <p class="m-5 back-branco red">Estado: <span class="back-branco azul">{{franquias.estado}}</span></p>
-        <p class="m-5 back-branco red">Cidade: <span class="back-branco azul">{{franquias.cidade}}</span></p>
-        <p class="m-5 back-branco red">Conferencia: <span class="back-branco azul">{{franquias.conferencia}} cm</span></p>
-        <p class="m-5 back-branco red">Descrição: <span class="back-branco azul">{{franquias.descFranq}}</span></p>
+        <p class="m-5 back-branco red">Estado: <span class="back-branco azul">{{franquiaMostrar.estado}}</span></p>
+        <p class="m-5 back-branco red">Cidade: <span class="back-branco azul">{{franquiaMostrar.cidade}}</span></p>
+        <p class="m-5 back-branco red">Conferencia: <span class="back-branco azul">{{franquiaMostrar.conferencia}} cm</span></p>
+        <p class="m-5 back-branco red">Descrição: <span class="back-branco azul">{{franquiaMostrar.descFranq}}</span></p>
     </div>
 
     <div class="back-branco">
-        <img src="{{logo}}" alt="Imagem do Jogador" class="back-branco img-consulta">
+        <img src="{{franquiaMostrar.logo}}" alt="Logo da Franquia" class="back-branco img-consulta">
     </div>
 </div>
 
@@ -20,15 +20,15 @@
         </a>
     </div>
 
-    {{#if adimin}}
+    {{#if admin}}
     <div class="back-branco m-2">
-        <a href="/edita/franquia/{{franquia.idFranq}}">
+        <a href="/franquia/editar/{{franquiaMostrar.id}}">
             <button class="btn btn-warning">Editar</button>
         </a>
     </div>
 
     <div class="back-branco m-2">
-        <a href="/deleta/{{franquia.idFranq}}">
+        <a href="/franquia/deletar/{{franquiaMostrar.id}}">
             <button class="btn btn-danger">Deletar</button>
         </a>
     </div>
