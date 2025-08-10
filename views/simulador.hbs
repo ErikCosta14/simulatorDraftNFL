@@ -39,15 +39,40 @@
 
     <div class="card card-pick m-2">
         <div class="card-body back-branco center">
-            <p class="card-text back-branco">1- {{nmFranquia}} PICK {{nmJogador}} </p>
-            <p class="card-text back-branco">2- {{nmFranquia}} PICK {{nmJogador}}</p>
-            <p class="card-text back-branco">3- {{nmFranquia}} PICK {{nmJogador}}</p>
-            <p class="card-text back-branco">4- {{nmFranquia}} PICK {{nmJogador}}</p>
+            <ol class="back-branco">
+                {{#each picksIniciais}}
+                <li class="back-branco">{{this}}</li>
+                {{/each}}
+            </ol>
 
-            <a href="/simulador/verselecao" class="back-branco ">
-                <button type="submit" class="btn btn-danger m-2">Ver Todos</button>
-            </a>
+            <div class="btn-card-simulator">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Ver Todos
+                </button>
+            </div>
 
+        </div>
+    </div>
+
+    <div class="modal fade back-branco" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content back-branco">
+                <div class="modal-header back-branco">
+                    <h1 class="modal-title back-branco fs-5" id="exampleModalLabel">Picks</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body back-branco">
+                    <ol class="back-branco">
+                        {{#each todasPicks}}
+                        <li class="back-branco">{{this}}</li>
+                        {{/each}}
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -64,21 +89,21 @@
         </thead>
         <tbody>
             {{#each jogadores}}
-                <tr class="back-branco">
-                    <td><img src="{{this.imgJog}}" alt="Foto do Jogador" id="imageJog"></td>
-                    <td>{{this.nmJogador}}</td>
-                    <td>{{this.posicao}}</td>
-                    <td>
-                        <a href="/jogadores/verdetalhes/{{idJog}}" class="back-branco link-sim">
-                            <button type="submit" class="btn btn-danger m-2">Ver Detalhes</button>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/jogadores/selecionar/{{idJog}}" class="back-branco link-sim">
-                            <button type="submit" class="btn btn-primary m-2">Selecionar</button>
-                        </a>
-                    </td>
-                </tr>
+            <tr class="back-branco">
+                <td><img src="{{this.imgJog}}" alt="Foto do Jogador" id="imageJog"></td>
+                <td>{{this.nmJogador}}</td>
+                <td>{{this.posicao}}</td>
+                <td>
+                    <a href="/jogadores/verdetalhes/{{idJog}}" class="back-branco link-sim">
+                        <button type="submit" class="btn btn-danger m-2">Ver Detalhes</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="/jogadores/selecionar/{{idJog}}" class="back-branco link-sim">
+                        <button type="submit" class="btn btn-primary m-2">Selecionar</button>
+                    </a>
+                </td>
+            </tr>
             {{/each}}
         </tbody>
     </table>
