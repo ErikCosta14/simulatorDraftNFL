@@ -82,7 +82,7 @@ class ConexaoBD {
     async carregarSimulacao(idSimulacao) {
         await conexao_bd()
         const colecao = bd().collection('simulacoes');
-        return await colecao.find({idSimulacao: idSimulacao});
+        return await colecao.find({idSimulacao: idSimulacao}).toArray();
     }
 
     async registarSimulacao(simulacao) {
@@ -99,7 +99,7 @@ class ConexaoBD {
 
     async carregarPick(idSimulacao) {
         await conexao_bd()
-        const colecao = bd().collection('simulacoes');
+        const colecao = bd().collection('picks');
         return await colecao.find({idSimulacao: idSimulacao}).toArray();
     }
 }

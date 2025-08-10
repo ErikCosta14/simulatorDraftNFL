@@ -4,7 +4,7 @@ var controllerHistorico = require('../Controller/controllerHistorico');
 
 /* GET */
 router.get('/:idFranq', controllerHistorico.carregarHistorico);
-router.get('/simulacao/:idSim')
+router.get('/simulacao/:idSim', controllerHistorico.carregarSimulacao)
 
 /* POST */
 

@@ -5,31 +5,42 @@ exports.carregarHistorico = async (req, res) => {
 
     var simulacoes = await con.buscarHistoricos(idFranquia);
 
-    res.render('historico', {title: 'Simulações', idFranquia: idFranquia, simulacoes: simulacoes, franquia:true})
+    res.render('historico', {title: 'Simulações', idFranquia: idFranquia, simulacao: simulacoes, franquia:true})
 }
 
 exports.carregarSimulacao = async (req, res) => {
-    var idSimulacao = parseInt(req.params.idSim);
+    var idSim = parseInt(req.params.idSim)
 
-    var simulacao = await con.carregarSimulacao(idSimulacao);
-    var picks = await con.carregarPick(idSimulacao);
+    var simulacao = await con.carregarSimulacao(idSim);
+    console.log(simulacao[0].rodadas)
+    console.log(simulacao[0].nmSimulacao)
+    var picks = await con.carregarPick(idSim);
+    console.log(picks[0].nmJogador)
+    console.log(picks[0].rodada)
 
     var escolhas = [];
 
-    for(var i = 0; i < simulacao.rodadas; i++){
+    for(var i = 0; i < simulacao[0].rodadas; i++){
         var vetPicks = []
 
-        for(var j = 0; j < picks.length; i++){
-            if(picks[i].rodada == i+1) {
-                vetPicks.push(picks[i])
+        for(var j = 0; j < picks.length; j++){
+            if(picks[j].rodada == (i+1)) {
+                vetPicks.push(picks[j])
             }
         }
 
-        escolhas[i] = {
+        escolhas.push({
             rodada: i+1,
             escolha: vetPicks
-        }
+        })
     }
 
-    res.render('simulacao', {titile: simulacao.nmSimulacao, nmSimulacao: simulacao.nmSimulacao, escolhas: escolhas, franquia: true})
+    var infoPag = {
+        title: simulacao[0].nmSimulacao, 
+        nmSimulacao: simulacao[0].nmSimulacao, 
+        escolhas: escolhas, 
+        franquia: true
+    }
+
+    res.render('simulacao', infoPag)
 }
