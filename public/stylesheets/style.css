@@ -143,9 +143,9 @@ ul{
 
 .conteudo-card{
     text-align: left;
-   background-color: #fcfdfe;  
-   color: #D50A0A;
-   font-size: 1.2rem;
+    background-color: #fcfdfe;  
+    color: #D50A0A;
+    font-size: 1.2rem;
 }
 
 #imageJog{
@@ -229,6 +229,11 @@ textarea{
     justify-content: center;
     align-items: center;
     background-color: #fcfdfe;
+}
+
+#mark-rodadas{
+    background-color: #D50A0A;
+    color: #fcfdfe;
 }
 
 

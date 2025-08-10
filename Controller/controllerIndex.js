@@ -18,7 +18,7 @@ exports.index = async (req, res) => {
     }
 
     if (conectado) {
-        if (usuario != "admin") {
+        if (infUser.usuario != "admin") {
             user = true
         }
     

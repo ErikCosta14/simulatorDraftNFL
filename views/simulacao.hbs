@@ -1,10 +1,12 @@
-<h3 class="m-5 back-branco red">{{nmSimulacao}}</h3>
+<div class="back-branco p-5">
 
-<table class="table table-hover table-bordered mt-5 mb-5 consulta-sim">
-    {{#each escolhas}}
+    <h3 class="m-5 back-branco red">{{nmSimulacao}}</h3>
+
+    <table class="table table-hover table-bordered mt-5 mb-5 consulta-sim">
+        {{#each escolhas}}
         <thead>
-            <tr class="center back-red branco">
-                <th colspan="4">Rodada: {{this.rodada}}</th>
+            <tr>
+                <th colspan="4" id="mark-rodadas">Rodada: {{this.rodada}}</th>
             </tr>
 
             <tr class="table-primary">
@@ -24,5 +26,12 @@
             </tr>
             {{/each}}
         </tbody>
-    {{/each}}
-</table>
+        {{/each}}
+    </table>
+
+    <a href="/historico/{{idFranquia}}" class="back-branco">
+        <button class="btn btn-secondary">Voltar</button>
+    </a>
+
+    
+</div>

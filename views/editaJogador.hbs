@@ -1,13 +1,13 @@
 <div class="container-fluid back-branco p-3">
 
-    <form action="/cadastro/jogador" method="post" enctype="multipart/form-data" class="m-5 back-branco">
+    <form action="/edita/jogador/{{jogador.id}}" method="post" enctype="multipart/form-data" class="m-5 back-branco">
         <div class="row g-3 back-branco">
             <div class="col-lg-1 rigth back-branco">
                 <label for="nmJogador" class="back-branco m-1">Nome:</label>
             </div>
 
             <div class="col-lg-4 back-branco">
-                <input type="text" class="form-control back-branco" name="nmJogador" id="nmJogador"
+                <input type="text" value="{{jogador.nmJogador}}" class="form-control back-branco" name="nmJogador" id="nmJogador"
                     aria-label="nmJogador" required>
             </div>
 
@@ -33,7 +33,8 @@
             </div>
 
             <div class="col-lg-1 back-branco">
-                <input type="number" class="form-control back-branco" name="idade" id="idade" aria-label="idade" required>
+                <input type="number" value="{{jogador.idade}}" class="form-control back-branco" name="idade" id="idade" aria-label="idade"
+                    required>
             </div>
 
         </div>
@@ -44,7 +45,7 @@
             </div>
 
             <div class="col-lg-4 back-branco">
-                <input type="text" class="form-control back-branco" name="faculdade" id="faculdade"
+                <input type="text" value="{{jogador.faculdade}}" class="form-control back-branco" name="faculdade" id="faculdade"
                     aria-label="faculdade" required>
             </div>
 
@@ -53,15 +54,16 @@
             </div>
 
             <div class="col-lg-1 back-branco">
-                <input type="number" class="form-control back-branco" name="altura" id="altura" aria-label="altura" required>
+                <input type="number" value="{{jogador.altura}}" class="form-control back-branco" name="altura" id="altura" aria-label="altura"
+                    required>
             </div>
 
             <div class="col-lg-2 rigth back-branco">
                 <label for="peso" class="back-branco m-1">Peso:</label>
             </div>
 
-            <div class="col-lg-1 back-branco"> 
-                <input type="number" class="form-control back-branco" name="peso" id="peso" aria-label="peso" required>
+            <div class="col-lg-1 back-branco">
+                <input type="number" value="{{jogador.peso}}" class="form-control back-branco" name="peso" id="peso" aria-label="peso" required>
             </div>
 
         </div>
@@ -74,8 +76,9 @@
 
         <div class="row g-3 mt-1 back-branco">
             <div class="col-lg-10 mt-1 m-5 back-branco">
-                <textarea class="form-control back-branco" id="descJog" name="descJog" rows="6" maxlength="110" cols="155" required>
-
+                <textarea class="form-control back-branco" id="descJog" name="descJog" rows="6" maxlength="110"
+                    cols="155" required>
+                        {{jogador.descJog}}
                 </textarea>
             </div>
         </div>
@@ -86,13 +89,13 @@
             </div>
 
             <div class="col-lg-1 back-branco">
-                <input type="file" name="imgJog" accept="image/*" class="back-branco" required>
+                <input type="file" value="{{jogador.imgJog}}" name="imgJog" accept="image/*" class="back-branco" required>
             </div>
 
         </div>
 
         <div class="btn-cad-jog back-branco">
-            <button type="submit" class="btn btn-primary m-2">Cadastrar</button>
+            <button type="submit" class="btn btn-primary m-2">Editar</button>
 
             <a href="/" class="back-branco">
                 <button type="button" class="btn btn-danger m-2">Cancelar</button>

@@ -8,7 +8,7 @@
 
             <div class="col-lg-4 back-branco">
                 <input type="text" class="form-control back-branco" name="nmFranquia" id="nmFranquia"
-                    aria-label="nmFranquia">
+                    aria-label="nmFranquia" required>
             </div>
 
             <div class="col-lg-1 rigth back-branco">
@@ -16,7 +16,7 @@
             </div>
 
             <div class="col-lg-4 back-branco">
-                <input type="text" class="form-control back-branco" name="estado" id="estado" aria-label="estado">
+                <input type="text" class="form-control back-branco" name="estado" id="estado" aria-label="estado" required>
             </div>
 
         </div>
@@ -27,7 +27,7 @@
             </div>
 
             <div class="col-lg-4 back-branco">
-                <input type="text" class="form-control back-branco" name="cidade" id="cidade" aria-label="cidade">
+                <input type="text" class="form-control back-branco" name="cidade" id="cidade" aria-label="cidade" required>
             </div>
 
             <div class="col-lg-1 rigth back-branco">
@@ -68,7 +68,7 @@
 
         <div class="row g-3 mt-1 back-branco">
             <div class="col-lg-10 mt-1 m-5 back-branco">
-                <textarea class="form-control back-branco" id="descFranquia" name="descFranquia" rows="6" cols="155">
+                <textarea class="form-control back-branco" id="descFranquia" name="descFranquia" rows="6" maxlength="110" cols="155" required>
 
                 </textarea>
             </div>
@@ -80,7 +80,7 @@
             </div>
 
             <div class="col-lg-3 back-branco">
-                <input type="file" name="logo" accept="image/*" class="back-branco">
+                <input type="file" name="logo" accept="image/*" class="back-branco" required>
             </div>
 
             <div class="col-lg-1 rigth back-branco">
@@ -89,11 +89,11 @@
 
             <div class="col-lg-2 back-branco">
                 <input type="text" class="form-control back-branco" name="usuario" id="usuario"
-                    aria-label="usuario">
+                    aria-label="usuario" required>
             </div>
 
             <div class="col-lg-1 rigth back-branco">
-                <label for="senha" class="back-branco m-1">Senha:</label>
+                <label for="senha" class="back-branco m-1" required>Senha:</label>
             </div>
 
             <div class="col-lg-2 back-branco">
