@@ -12,76 +12,87 @@
 <body>
   <nav class="navbar navbar-expand-lg mb-5">
     <div class="container-fluid">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <img src="/img/nfl_draft_logo_100px.png" alt="Logo nfl">
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link branco" aria-current="page" href="/">Home</a>
-        </li>
-        {{#if franquia}}
-        <li class="nav-item">
-          <a class="nav-link branco" href="/historico/{{idFranquia}}">Histórico</a>
-        </li>
+      <a class="navbar-brand" href="/">
+        <img src="/img/nfl_draft_logo_100px.png" alt="Logo nfl">
+      </a>
 
-        <li class="nav-item">
-          <a class="nav-link branco" href="/simulador/{{idFranquia}}">Simulador</a>
-        </li>
-        {{else}}
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle branco" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Cadastro
-          </a>
+      <button class="back-branco navbar-toggler" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#menuOffcanvas" aria-controls="menuOffcanvas">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-          <ul class="dropdown-menu">
-            <li>
-              <a class=" dropdown-item branco" href="/cadastro/jogador">Jogador</a>
+      <!-- Offcanvas -->
+      <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="menuOffcanvas"
+        aria-labelledby="menuOffcanvasLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="menuOffcanvasLabel">Menu</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-lg-flex justify-content-between">
+
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link branco" aria-current="page" href="/">Home</a>
             </li>
-            <li>
-              <a class="dropdown-item branco" href="/cadastro/franquia">Franquia</a>
+            {{#if franquia}}
+            <li class="nav-item">
+              <a class="nav-link branco" href="/historico/{{idFranquia}}">Histórico</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link branco" href="/simulador/{{idFranquia}}">Simulador</a>
+            </li>
+            {{else}}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle branco" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Cadastro
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="branco dropdown-item" href="/cadastro/jogador">Jogador</a></li>
+                <li><a class="branco dropdown-item" href="/cadastro/franquia">Franquia</a></li>
+              </ul>
+            </li>
+            {{/if}}
+
+            <li class="nav-item">
+              <a class="nav-link branco" href="/jogadores">Jogadores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link branco" href="/franquias">Franquias</a>
             </li>
           </ul>
-        </li>
-        {{/if}}
 
-        <li class="nav-item">
-          <a class="nav-link branco" href="/jogadores">Jogadores</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link branco" href="/franquias">Franquias</a>
-        </li>
-      </ul>
-
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle dropdown-toggle-user branco" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-            {{nmUsuario}} <i class="bi bi-person-fill branco perfil"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item branco" href="/sair">Sair</a></li>
-
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle dropdown-toggle-user branco" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                {{nmUsuario}} <i class="bi bi-person-fill branco perfil"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="branco dropdown-item" href="/sair">Sair</a></li>
+              </ul>
+            </li>
           </ul>
-        </li>
-      </ul>
 
+        </div>
+      </div>
     </div>
   </nav>
 
   {{{body}}}
 
-<div class="container-fluid" style="background-color: #013369;">
-  <footer>
-    <p class="footer-text branco">Site oficial da NFL</p>
+  <div class="container-fluid" style="background-color: #013369;">
+    <footer>
+      <p class="footer-text branco">Site oficial da NFL</p>
 
-    <a href="https://www.nfl.com/" target="blank">
-      <img src="/img/nfl-logo-oficial_90px.png" alt="Logo Oficial da NFL">
-    </a>
+      <a href="https://www.nfl.com/" target="blank">
+        <img src="/img/nfl-logo-oficial_90px.png" alt="Logo Oficial da NFL">
+      </a>
 
-  </footer>
+    </footer>
 
-</div>
+  </div>
 
 
 

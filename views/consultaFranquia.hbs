@@ -1,15 +1,44 @@
-<h3 class="m-5 back-branco red">Detalhes: <span>{{franquiaMostrar.nmFranquia}}</span></h3>
+<div class="back-branco p-5">
 
-<div class="back-branco consulta-container">
-    <div class="back-branco">
-        <p class="m-5 back-branco red">Estado: <span class="back-branco azul">{{franquiaMostrar.estado}}</span></p>
-        <p class="m-5 back-branco red">Cidade: <span class="back-branco azul">{{franquiaMostrar.cidade}}</span></p>
-        <p class="m-5 back-branco red">Conferencia: <span class="back-branco azul">{{franquiaMostrar.conferencia}} cm</span></p>
-        <p class="m-5 back-branco red">Descrição: <span class="back-branco azul">{{franquiaMostrar.descFranq}}</span></p>
+    <h3 class="m-5 back-branco red">Detalhes: <span>{{franquiaMostrar.nmFranquia}}</span></h3>
+
+    <div class="back-branco consulta-container">
+        <div class="back-branco">
+            <p class="m-5 back-branco red">Estado: <span class="back-branco azul">{{franquiaMostrar.estado}}</span></p>
+            <p class="m-5 back-branco red">Cidade: <span class="back-branco azul">{{franquiaMostrar.cidade}}</span></p>
+            <p class="m-5 back-branco red">Conferencia: <span class="back-branco azul">{{franquiaMostrar.conferencia}}
+                    cm</span></p>
+            <p class="m-5 back-branco red">Descrição: <span
+                    class="back-branco azul">{{franquiaMostrar.descFranq}}</span></p>
+        </div>
+
+        <div class="back-branco">
+            <img src="{{franquiaMostrar.logo}}" alt="Logo da Franquia" class="back-branco img-consulta">
+        </div>
     </div>
 
-    <div class="back-branco">
-        <img src="{{franquiaMostrar.logo}}" alt="Logo da Franquia" class="back-branco img-consulta">
+    <div class="btn-container m-5">
+        <div class="back-branco m-2">
+            <a href="/franquias">
+                <button class="btn btn-secondary">Voltar</button>
+            </a>
+        </div>
+
+        {{#if admin}}
+        <div class="back-branco m-2">
+            <a href="/franquia/editar/{{franquiaMostrar.id}}">
+                <button class="btn btn-warning">Editar</button>
+            </a>
+        </div>
+
+        <div class="back-branco m-2">
+            <a href="/franquia/deletar/{{franquiaMostrar.id}}">
+                <button class="btn btn-danger">Deletar</button>
+            </a>
+        </div>
+        {{/if}}
+
+
     </div>
 </div>
 
