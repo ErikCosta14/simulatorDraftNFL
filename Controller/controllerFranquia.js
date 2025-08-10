@@ -66,50 +66,48 @@ exports.getEditarFra = async (req, res) => {
 }
 
 exports.postEditarFra = async (req, res) => {
-    var id = parseInt(req.params.idJog)
+    var id = parseInt(req.params.idFra)
     
-    var jog = await con.carregarJogador(id)
+    var fra = await con.carregarFranquiaId(id)
 
-    var imgJog = {
-        data: jog[0].imgJog.data,
-        contentType: jog[0].imgJog.contentType
+    var logo = {
+        data: fra[0].logo.data,
+        contentType: fra[0].logo.contentType
     }
 
     if (req.file) {
-        imgJog = {
+        logo = {
             data: req.file.buffer,
             contentType: req.file.mimetype
         }
     }
 
     try {
-        jogador = {
+        franquia = {
             id: id,
-            nmJogador: req.body.nmJogador,
-            posicao: req.body.posicao,
-            faculdade:req.body.faculdade,
-            descJog: req.body.descJog,
-            idade: parseInt(req.body.idade),
-            altura: parseFloat(req.body.altura),
-            peso: parseFloat(req.body.peso),
-            imgJog: imgJog     
+            nmFranquia: req.body.nmFranquia,
+            estado: req.body.estado,
+            cidade:req.body.cidade,
+            conferencia: req.body.conferencia + " " + req.body.regiao,
+            descFranquia: req.body.descFranquia,
+            logo: logo
         }
     } catch (error) {
-        console.error('Erro ao cadastrar jogador:', error);
-        res.status(500).send('Erro ao cadastrar jogador');
+        console.error('Erro ao editar franquia:', error);
+        res.status(500).send('Erro ao editar franquia');
         return;
     }
 
-    await con.editarJogador(jogador)
+    await con.editarFranquia(franquia)
 
-    var red = '/jogadores/verdetalhes/' + id
+    var red = '/franquias/verdetalhes/' + id
     res.redirect(red)
 }
 
 exports.deletar = async (req, res) => {
-    var id = parseInt(req.params.idJog)
+    var id = parseInt(req.params.idFra)
 
-    await con.deletarJogador(id)
+    await con.deletarFranquia(id)
 
-    res.redirect('/jogadores')
+    res.redirect('/franquias')
 }

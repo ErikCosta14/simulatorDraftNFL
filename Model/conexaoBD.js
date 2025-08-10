@@ -106,6 +106,26 @@ class ConexaoBD {
         return await colecao.find({id: idFranquia}).toArray();
     }
 
+    async editarFranquia(franquia) {
+        await conexao_bd()
+        const colecao = bd().collection('franquias');
+        await colecao.updateOne(
+            {id: franquia.id},
+            {$set: {nmFranquia: franquia.nmFranquia, estado: franquia.estado,cidade: franquia.cidade,conferencia: franquia.conferencia, descFranquia: franquia.descFranquia, logo: franquia.logo}}
+        )
+    }
+
+    async deletarFranquia(idFranquia) {
+        await conexao_bd()
+        const colecao = bd().collection('franquias');
+        const fra = await colecao.findOne({id: idFranquia})
+        if (!fra) {
+            throw new Error(`Não existe franquia com id: ${idFranquia}`)
+        } else {
+            await colecao.findOneAndDelete({id: idFranquia})
+        }
+    }
+
     async buscarHistoricos(idFranquia) {
         await conexao_bd()
         const colecao = bd().collection('simulacoes');
