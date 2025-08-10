@@ -1,0 +1,88 @@
+<h3 class="m-5 back-branco red">SIMULADOR</h3>
+
+<div class="container back-branco m-5">
+    <div class="row back-branco">
+        <div class="col-2 back-branco">
+            <label for="nmSimulacao" class="back-branco">Nome da Simulação</label>
+        </div>
+        <div class="col-8 back-branco">
+            <input type="text" class="form-control back-branco" name="nmSimulacao" id="nmSimulacao"
+                aria-label="nmSimulacao">
+        </div>
+    </div>
+
+    <div class="row back-branco">
+        <div class="col-6 back-branco">
+
+        </div>
+        <div class="col-3 back-branco m-1">
+            <a class="back-branco" href="/simulador/iniciar">
+                <button class="btn btn-primary m-2">Iniciar</button>
+            </a>
+
+            <a class="back-branco" href="/simulador/cancelar ">
+                <button class="btn btn-danger m-2">Cancelar</button>
+            </a>
+
+            <a class="back-branco" href="/simulador/finalizar">
+                <button class="btn btn-success m-2">Finalizar</button>
+            </a>
+
+        </div>
+
+        <div class="col-3 back-branco">
+
+        </div>
+    </div>
+
+    {{#if inicio}}
+
+    <div class="card card-pick m-2">
+        <div class="card-body back-branco center">
+            <p class="card-text back-branco">1- {{nmFranquia}} PICK {{nmJogador}} </p>
+            <p class="card-text back-branco">2- {{nmFranquia}} PICK {{nmJogador}}</p>
+            <p class="card-text back-branco">3- {{nmFranquia}} PICK {{nmJogador}}</p>
+            <p class="card-text back-branco">4- {{nmFranquia}} PICK {{nmJogador}}</p>
+
+            <a href="/simulador/verselecao" class="back-branco ">
+                <button type="submit" class="btn btn-danger m-2">Ver Todos</button>
+            </a>
+
+        </div>
+    </div>
+
+    <h3 class="m-5 back-branco red center">Rodada: {{rodada}} Pick:{{pick}}</h3>
+
+    <table class="table table-hover table-bordered back-branco table-sim mt-5 mb-5">
+        <thead>
+            <tr class="table-primary">
+                <th colspan="2">Jogador</th>
+                <th scope="col">Posição</th>
+                <th scope="col">Detalhes</th>
+                <th scope="col">Selecionar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each jogadores}}
+                <tr class="back-branco">
+                    <td><img src="{{this.imgJog}}" alt="Foto do Jogador" id="imageJog"></td>
+                    <td>{{this.nmJogador}}</td>
+                    <td>{{this.posicao}}</td>
+                    <td>
+                        <a href="/jogadores/verdetalhes/{{idJog}}" class="back-branco link-sim">
+                            <button type="submit" class="btn btn-danger m-2">Ver Detalhes</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/jogadores/selecionar/{{idJog}}" class="back-branco link-sim">
+                            <button type="submit" class="btn btn-primary m-2">Selecionar</button>
+                        </a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    {{/if}}
+
+</div>
