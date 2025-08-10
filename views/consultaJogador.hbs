@@ -14,7 +14,7 @@
         <div class="back-branco">
             <img src="{{jogador.imgJog}}" alt="Imagem do Jogador" class="back-branco img-consulta">
         </div>
-        
+
     </div>
 
     <p class="center back-branco red">Descrição: <span class="back-branco azul">{{jogador.descJog}}</span></p>
@@ -26,19 +26,20 @@
             </a>
         </div>
 
-    {{#if admin}}
-    <div class="back-branco m-2">
-        <a href="/jogadores/editar/{{jogador.id}}">
-            <button class="btn btn-warning">Editar</button>
-        </a>
+        {{#if admin}}
+        <div class="back-branco m-2">
+            <a href="/jogadores/editar/{{jogador.id}}">
+                <button class="btn btn-warning">Editar</button>
+            </a>
+        </div>
+
+        <div class="back-branco m-2">
+            <a href="/jogadores/deletar/{{jogador.id}}">
+                <button class="btn btn-danger">Deletar</button>
+            </a>
+        </div>
+        {{/if}}
+
+
     </div>
-
-    <div class="back-branco m-2">
-        <a href="/jogadores/deletar/{{jogador.id}}">
-            <button class="btn btn-danger">Deletar</button>
-        </a>
-    </div>
-    {{/if}}
-
-
 </div>
