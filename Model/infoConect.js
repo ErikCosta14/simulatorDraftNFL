@@ -1,11 +1,11 @@
-var id;
-var usuario;
+var usuarioLogado;
 
-class User {
-    constructor(idF, usuarioF) {
-        id = idF;
-        usuario = usuarioF;
-    }
+async function setUsuario(usuario) {
+    usuarioLogado = usuario;
 }
 
-module.exports = User
+async function getUsuario() {
+    return usuarioLogado
+}
+
+module.exports = { setUsuario, getUsuario };

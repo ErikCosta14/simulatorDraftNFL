@@ -3,6 +3,6 @@ var router = express.Router();
 var controllerJogador = require('../Controller/controllerJogador');
 
 /* GET */
-// router.get('/', controllerJogador.jogadores);
+router.get('/verdetalhes/:idJog', controllerJogador.verJogador);
 
 module.exports = router;

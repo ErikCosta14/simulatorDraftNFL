@@ -1,17 +1,17 @@
-<h3 class="m-5 back-branco red">Detalhes: <span>{{jogadores.nmJogador}}</span></h3>
+<h3 class="m-5 back-branco red">Detalhes: <span>{{jogador.nmJogador}}</span></h3>
 
 <div class="back-branco consulta-container">
     <div class="back-branco">
-        <p class="m-5 back-branco red">Nome: <span class="back-branco azul">{{jogadores.nmJogador}}</span></p>
-        <p class="m-5 back-branco red">Idade: <span class="back-branco azul">{{jogadores.idade}}</span></p>
-        <p class="m-5 back-branco red">Altura: <span class="back-branco azul">{{jogadores.altura}} cm</span></p>
-        <p class="m-5 back-branco red">Peso: <span class="back-branco azul">{{jogadores.peso}} Kg</span></p>
-        <p class="m-5 back-branco red">Faculdade: <span class="back-branco azul">{{jogadores.faculdade}}</span></p>
-        <p class="m-5 back-branco red">Descrição: <span class="back-branco azul">{{jogadores.descJog}}</span></p>
+        <p class="m-5 back-branco red">Nome: <span class="back-branco azul">{{jogador.nmJogador}}</span></p>
+        <p class="m-5 back-branco red">Idade: <span class="back-branco azul">{{jogador.idade}}</span></p>
+        <p class="m-5 back-branco red">Altura: <span class="back-branco azul">{{jogador.altura}} cm</span></p>
+        <p class="m-5 back-branco red">Peso: <span class="back-branco azul">{{jogador.peso}} Kg</span></p>
+        <p class="m-5 back-branco red">Faculdade: <span class="back-branco azul">{{jogador.faculdade}}</span></p>
+        <p class="m-5 back-branco red">Descrição: <span class="back-branco azul">{{jogador.descJog}}</span></p>
     </div>
 
     <div class="back-branco">
-        <img src="{{imgJog}}" alt="Imagem do Jogador" class="back-branco img-consulta">
+        <img src="{{jogador.imgJog}}" alt="Imagem do Jogador" class="back-branco img-consulta">
     </div>
 </div>
 
@@ -22,7 +22,7 @@
         </a>
     </div>
 
-    {{#if adimin}}
+    {{#if admin}}
     <div class="back-branco m-2">
         <a href="/">
             <button class="btn btn-warning">Editar</button>

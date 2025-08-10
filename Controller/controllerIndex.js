@@ -4,20 +4,22 @@ var infUser = require('../Model/infoConect');
 var conectado = false;
 var usuario;
 var senha;
-var user;
+var user = false;
 
 exports.index = async (req, res) => {
-    usuario = req.body.usuario;
-    senha = req.body.senha;
+    if(!conectado){
+        usuario = req.body.usuario;
+        senha = req.body.senha;
+    }
     
     if(senha != undefined && senha != null && senha != '') {
         conectado = await con.verificaUsuario(usuario, senha);
         var fr = await con.buscarUsuario(usuario);
-        infUser.usuario = usuario
-        infUser.id = fr.id
+        infUser.setUsuario(fr)
     }
 
     if (conectado) {
+        console.log(usuario)
         if (usuario != "admin") {
             user = true
         }
@@ -61,7 +63,10 @@ exports.index = async (req, res) => {
             }
         }
 
-        res.render('index', { title: 'Tela Inicial', jogadores: jogs, franquias: fran, franquia:user, idFranquia: infUser.id});
+        var usuarioLog = await infUser.getUsuario()
+        var idFr = usuarioLog.id
+
+        res.render('index', { title: 'Tela Inicial', jogadores: jogs, franquias: fran, franquia:user, idFranquia: idFr});
     } else {
         res.render('login', { title: 'Tela de Login', franquia:false });
     }
@@ -82,9 +87,12 @@ exports.jogadores = async (req, res) => {
         return jogador;
     });
 
+    var usuarioLog = await infUser.getUsuario()
+    var idFr = usuarioLog.id
+
     pagInfo = {
         title: "Jogadores",
-        idFranquia: infUser.id,
+        idFranquia: idFr,
         franquia: user,
         jogadores: jogadoresComImagem
     }
@@ -106,9 +114,12 @@ exports.franquias = async (req, res) => {
         return franquia;
     });
     
+    var usuarioLog = await infUser.getUsuario()
+    var idFr = usuarioLog.id
+
     pagInfo = {
         title: "Franquias",
-        idFranquia: infUser.id,
+        idFranquia: idFr,
         franquia: user,
         franquias: franquiasComImagem
     }
