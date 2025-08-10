@@ -62,6 +62,15 @@ class ConexaoBD {
         return await colecao.find({id: idJogador}).toArray();
     }
 
+    async editarJogador(jogador) {
+        await conexao_bd()
+        const colecao = bd().collection('jogadores');
+        await colecao.updateOne(
+            {id: jogador.id},
+            {$set: {nmJogador: jogador.nmJogador, posicao: jogador.posicao, faculdade: jogador.faculdade, descJog: jogador.descJog, idade: jogador.idade, altura: jogador.altura, peso: jogador.peso, imgJog: jogador.imgJog}}
+        )
+    }
+
     async registroFranquia(franquia) {
         await conexao_bd()
         const colecao = bd().collection('franquias');

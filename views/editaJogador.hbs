@@ -1,6 +1,6 @@
 <div class="container-fluid back-branco p-3">
 
-    <form action="/edita/jogador/{{jogador.id}}" method="post" enctype="multipart/form-data" class="m-5 back-branco">
+    <form action="/jogadores/editar/{{jogador.id}}" method="post" enctype="multipart/form-data" class="m-5 back-branco">
         <div class="row g-3 back-branco">
             <div class="col-lg-1 rigth back-branco">
                 <label for="nmJogador" class="back-branco m-1">Nome:</label>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="col-lg-1 back-branco">
-                <input type="file" value="{{jogador.imgJog}}" name="imgJog" accept="image/*" class="back-branco" required>
+                <input type="file" name="imgJog" accept="image/*" class="back-branco">
             </div>
 
         </div>
@@ -97,7 +97,7 @@
         <div class="btn-cad-jog back-branco">
             <button type="submit" class="btn btn-primary m-2">Editar</button>
 
-            <a href="/" class="back-branco">
+            <a href="/jogadores/verdetalhes/{{jogador.id}}" class="back-branco">
                 <button type="button" class="btn btn-danger m-2">Cancelar</button>
             </a>
         </div>
