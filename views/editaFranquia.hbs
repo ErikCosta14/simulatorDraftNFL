@@ -1,0 +1,100 @@
+<div class="container-fluid back-branco p-3">
+
+    <form action="/edita/franquia/{{franquia.id}}" method="post" enctype="multipart/form-data" class="m-5 back-branco">
+        <div class="row g-3 back-branco">
+            <div class="col-lg-1 rigth back-branco">
+                <label for="nmFranquia" class="back-branco m-1">Nome:</label>
+            </div>
+
+            <div class="col-lg-4 back-branco">
+                <input type="text" value="{{franquia.nmFranquia}}" class="form-control back-branco" name="nmFranquia" id="nmFranquia"
+                    aria-label="nmFranquia" required>
+            </div>
+
+            <div class="col-lg-1 rigth back-branco">
+                <label for="estado" class="back-branco m-1">Estado:</label>
+            </div>
+
+            <div class="col-lg-4 back-branco">
+                <input type="text" value="{{franquia.estado}}" class="form-control back-branco" name="estado" id="estado" aria-label="estado"
+                    required>
+            </div>
+
+        </div>
+
+        <div class="row g-3 mt-5 back-branco">
+            <div class="col-lg-1 rigth back-branco">
+                <label for="cidade" class="back-branco m-1">Cidade:</label>
+            </div>
+
+            <div class="col-lg-4 back-branco">
+                <input type="text" value="{{franquia.cidade}}" class="form-control back-branco" name="cidade" id="cidade" aria-label="cidade"
+                    required>
+            </div>
+
+            <div class="col-lg-1 rigth back-branco">
+                <label for="conferencia" class="back-branco m-1">Conferencia:</label>
+            </div>
+
+            <div class="col-lg-2 back-branco">
+                <div class="col-lg-6 back-branco">
+                    <select name="conferencia" id="conferencia" class="form-select back-branco">
+                        <option value="AFC" class="back-branco">AFC</option>
+                        <option value="NFC" class="back-branco">NFC</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-lg-1 rigth back-branco">
+                <label for="regiao" class="back-branco m-1">Região:</label>
+            </div>
+
+            <div class="col-lg-2 back-branco">
+                <div class="col-lg-6 back-branco">
+                    <select name="regiao" id="regiao" class="form-select back-branco">
+                        <option value="North" class="back-branco">North</option>
+                        <option value="South" class="back-branco">South</option>
+                        <option value="East" class="back-branco">East</option>
+                        <option value="West" class="back-branco">West</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row g-3 mt-5 back-branco">
+            <div class="col-lg-1 rigth back-branco">
+                <label for="descFranquia" class="back-branco m-1">Descrição:</label>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-1 back-branco">
+            <div class="col-lg-10 mt-1 m-5 back-branco">
+                <textarea class="form-control back-branco" id="descFranquia" name="descFranquia" rows="6"
+                    maxlength="110" cols="155" required>
+                    {{franquia.descFranquia}}
+                </textarea>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-1 back-branco">
+            <div class="col-lg-1 rigth back-branco">
+                <label for="logo" class="back-branco">Foto:</label>
+            </div>
+
+            <div class="col-lg-3 back-branco">
+                <input type="file" value="{{franquia.logo}}" name="logo" accept="image/*" class="back-branco" required>
+            </div>
+
+        </div>
+
+        <div class="btn-cad-jog back-branco m-5">
+            <button class="btn btn-primary m-2">Registrar</button>
+
+            <a href="/franquias/verdetalhes/{{franquia.id}}" class="back-branco">
+                <button class="btn btn-danger m-2">Cancelar</button>
+            </a>
+        </div>
+
+    </form>
+</div>

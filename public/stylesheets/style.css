@@ -4,6 +4,10 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.dropdown-toggle-user::after {
+  display: none;
+}
+
 nav{
     height: 150px;
 }
