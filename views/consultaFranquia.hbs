@@ -9,13 +9,16 @@
             <p class="m-5 back-branco red">Conferencia: <span class="back-branco azul">{{franquiaMostrar.conferencia}}
                     cm</span></p>
             <p class="m-5 back-branco red">Descrição: <span
-                    class="back-branco azul">{{franquiaMostrar.descFranq}}</span></p>
+                    class="back-branco azul">{{franquiaMostrar.descFranquia}}</span></p>
         </div>
 
         <div class="back-branco">
             <img src="{{franquiaMostrar.logo}}" alt="Logo da Franquia" class="back-branco img-consulta">
         </div>
     </div>
+
+    <p class="center back-branco red">Descrição: <span class="back-branco azul">{{franquiaMostrar.descFranquia}}</span>
+    </p>
 
     <div class="btn-container m-5">
         <div class="back-branco m-2">
@@ -26,13 +29,13 @@
 
         {{#if admin}}
         <div class="back-branco m-2">
-            <a href="/franquia/editar/{{franquiaMostrar.id}}">
+            <a href="/franquias/editar/{{franquiaMostrar.id}}">
                 <button class="btn btn-warning">Editar</button>
             </a>
         </div>
 
         <div class="back-branco m-2">
-            <a href="/franquia/deletar/{{franquiaMostrar.id}}">
+            <a href="/franquias/deletar/{{franquiaMostrar.id}}">
                 <button class="btn btn-danger">Deletar</button>
             </a>
         </div>
@@ -40,28 +43,5 @@
 
 
     </div>
-</div>
-
-<div class="btn-container m-5">
-    <div class="back-branco m-2">
-        <a href="/franquias">
-            <button class="btn btn-secondary">Voltar</button>
-        </a>
-    </div>
-
-    {{#if admin}}
-    <div class="back-branco m-2">
-        <a href="/franquias/editar/{{franquiaMostrar.id}}">
-            <button class="btn btn-warning">Editar</button>
-        </a>
-    </div>
-
-    <div class="back-branco m-2">
-        <a href="/franquias/deletar/{{franquiaMostrar.id}}">
-            <button class="btn btn-danger">Deletar</button>
-        </a>
-    </div>
-    {{/if}}
-
 
 </div>
