@@ -1,0 +1,52 @@
+<div class="card mb-5 mt-5 m-5">
+    <div class="card-body card-externo">
+        <h3 class="card-title m-2">JOGADORES</h3>
+        <p class="card-text">
+        <div class="row">
+            {{#if jogadores.length}}
+            {{#each jogadores}}
+            <div class="col-sm-6 col-lg-4 mb-3 mb-sm-0">
+                <div class="card left">
+                    <div class="card-body card-interno">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{{this.imgJog}}" alt="Foto do atleta" class="conteudo-card">
+                                </div>
+                                <div class="col">
+                                    <p class="conteudo-card">Nome: <span class="span-valor">{{this.nmJogador}}</span>
+                                    </p>
+                                    <p class="conteudo-card">Posição: <span class="span-valor">{{this.posicao}}</span>
+                                    </p>
+                                    <p class="conteudo-card">Faculdade: <span
+                                            class="span-valor">{{this.faculdade}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="card-text conteudo-card">
+                            Descrição: <span class="span-valor">
+                                {{this.descJog}}
+                            </span>
+                        </p>
+
+                        <div class="center back-branco">
+                            <a href="/jogadores/verdetalhes/:idJog">
+                                <button class="btn btn-danger">Ver Detalhes</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <h3 class="display-4 branco">Ainda não há jogadores cadastrados</h3>
+            {{/if}}
+        </div>
+
+        </p>
+
+    </div>
+</div>
