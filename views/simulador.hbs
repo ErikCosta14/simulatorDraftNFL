@@ -38,77 +38,79 @@
 
     {{#if inicio}}
 
-    <div class="card card-pick m-2">
-        <div class="card-body back-branco center">
-            <ol class="back-branco">
-                {{#each picksIniciais}}
-                <li class="back-branco">{{this}}</li>
-                {{/each}}
-            </ol>
+        <div class="card card-pick m-2">
+            <div class="card-body back-branco center">
+                <ol class="back-branco">
+                    {{#each picksIniciais}}
+                    <li class="back-branco">{{this}}</li>
+                    {{/each}}
+                </ol>
 
-            <div class="btn-card-simulator">
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Todos
-                </button>
-            </div>
+                <div class="btn-card-simulator">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Ver Todos
+                    </button>
+                </div>
 
-        </div>
-    </div>
-
-    <div class="modal fade back-branco" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content back-branco">
-                <div class="modal-header back-branco">
-                    <h1 class="modal-title back-branco fs-5" id="exampleModalLabel">Picks</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body back-branco">
-                    <ol class="back-branco">
-                        {{#each todasPicks}}
-                        <li class="back-branco">{{this}}</li>
-                        {{/each}}
-                    </ol>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                </div>
             </div>
         </div>
-    </div>
 
-    <h3 class="m-5 back-branco red center">Rodada: {{rodada}} Pick:{{pick}}</h3>
+        <div class="modal fade back-branco" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content back-branco">
+                    <div class="modal-header back-branco">
+                        <h1 class="modal-title back-branco fs-5" id="exampleModalLabel">Picks</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body back-branco">
+                        <ol class="back-branco">
+                            {{#each todasPicks}}
+                            <li class="back-branco">{{this}}</li>
+                            {{/each}}
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{#if jogadores.length}}
+            <h3 class="m-5 back-branco red center">Rodada: {{rodada}} Pick:{{pick}}</h3>
 
-    <table class="table table-hover table-bordered back-branco table-sim mt-5 mb-5">
-        <thead>
-            <tr class="table-primary">
-                <th colspan="2">Jogador</th>
-                <th scope="col">Posição</th>
-                <th scope="col">Detalhes</th>
-                <th scope="col">Selecionar</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each jogadores}}
-            <tr class="back-branco">
-                <td><img src="{{this.imgJog}}" alt="Foto do Jogador" id="imageJog"></td>
-                <td>{{this.nmJogador}}</td>
-                <td>{{this.posicao}}</td>
-                <td>
-                    <a href="/jogadores/verdetalhes/{{this.id}}" class="back-branco link-sim">
-                        <button type="submit" class="btn btn-danger m-2">Ver Detalhes</button>
-                    </a>
-                </td>
-                <td>
-                    <a href="/simulador/selecionar/{{this.id}}" class="back-branco link-sim">
-                        <button type="submit" class="btn btn-primary m-2">Selecionar</button>
-                    </a>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-
+            <table class="table table-hover table-bordered back-branco table-sim mt-5 mb-5">
+                <thead>
+                    <tr class="table-primary">
+                        <th colspan="2">Jogador</th>
+                        <th scope="col">Posição</th>
+                        <th scope="col">Detalhes</th>
+                        <th scope="col">Selecionar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each jogadores}}
+                    <tr class="back-branco">
+                        <td><img src="{{this.imgJog}}" alt="Foto do Jogador" id="imageJog"></td>
+                        <td>{{this.nmJogador}}</td>
+                        <td>{{this.posicao}}</td>
+                        <td>
+                            <a href="/jogadores/verdetalhes/{{this.id}}" class="back-branco link-sim">
+                                <button type="submit" class="btn btn-danger m-2">Ver Detalhes</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/simulador/selecionar/{{this.id}}" class="back-branco link-sim">
+                                <button type="submit" class="btn btn-primary m-2">Selecionar</button>
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <h4 class="display-4 red">Todos os jogadores foram escolhidos!</h4>
+        {{/if}}
     {{/if}}
 
 </div>

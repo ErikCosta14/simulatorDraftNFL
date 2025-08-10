@@ -38,6 +38,7 @@ exports.carregarSimulacao = async (req, res) => {
     var infoPag = {
         title: simulacao[0].nmSimulacao, 
         nmSimulacao: simulacao[0].nmSimulacao, 
+        idFranquia: simulacao[0].idFranquia,
         escolhas: escolhas, 
         franquia: true
     }

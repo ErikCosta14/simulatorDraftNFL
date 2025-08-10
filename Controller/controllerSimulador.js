@@ -190,15 +190,17 @@ async function verificaEsc(n) {
 }
 
 async function pickFranqs(idFran) {
-    while (franquias[numEsc].id != idFran) {
-        jogAleatorio = Math.floor(Math.random() * jogNoSelect.length);
-        
-        jogSelect[pickAtual - 1] = jogNoSelect[jogAleatorio];
-        jogNoSelect.splice(jogAleatorio, 1);
+    if(jogNoSelect.length > 0){
+        while (franquias[numEsc].id != idFran) {
+            jogAleatorio = Math.floor(Math.random() * jogNoSelect.length);
+            
+            jogSelect[pickAtual - 1] = jogNoSelect[jogAleatorio];
+            jogNoSelect.splice(jogAleatorio, 1);
 
-        numEsc++;
-        await verificaEsc(numEsc);
-        pickAtual++;
+            numEsc++;
+            await verificaEsc(numEsc);
+            pickAtual++;
+        }
     }
 }
 
@@ -210,7 +212,7 @@ async function addPicks() {
                 picksIniciais[i] = franquias[numFranq].nmFranquia + " PICK " + jogSelect[i].nmJogador;
             }
 
-            todasPicks[i] = franquias[numFranq].nmFranquia + "PICK" + jogSelect[i].nmJogador;
+            todasPicks[i] = franquias[numFranq].nmFranquia + " PICK " + jogSelect[i].nmJogador;
             numFranq++
 
             if(numFranq >= franquias.length) {
