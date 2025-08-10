@@ -1,39 +1,40 @@
 <h3 class="m-5 back-branco red">SIMULADOR</h3>
 
 <div class="container back-branco m-5">
-    <div class="row back-branco">
-        <div class="col-2 back-branco">
-            <label for="nmSimulacao" class="back-branco">Nome da Simulação</label>
-        </div>
-        <div class="col-8 back-branco">
-            <input type="text" class="form-control back-branco" name="nmSimulacao" id="nmSimulacao"
-                aria-label="nmSimulacao">
-        </div>
-    </div>
-
-    <div class="row back-branco">
-        <div class="col-6 back-branco">
-
-        </div>
-        <div class="col-3 back-branco m-1">
-            <a class="back-branco" href="/simulador/iniciar">
-                <button class="btn btn-primary m-2">Iniciar</button>
-            </a>
-
-            <a class="back-branco" href="/simulador/cancelar ">
-                <button class="btn btn-danger m-2">Cancelar</button>
-            </a>
-
-            <a class="back-branco" href="/simulador/finalizar">
-                <button class="btn btn-success m-2">Finalizar</button>
-            </a>
-
+    <form action="/simulador/iniciar" method="post">
+        <div class="row back-branco">
+            <div class="col-2 back-branco">
+                <label for="nmSimulacao" class="back-branco">Nome da Simulação</label>
+            </div>
+            <div class="col-8 back-branco">
+                <input type="text" class="form-control back-branco" name="nmSimulacao" id="nmSimulacao"
+                    aria-label="nmSimulacao">
+            </div>
         </div>
 
-        <div class="col-3 back-branco">
+        <div class="row back-branco">
+            <div class="col-6 back-branco">
 
+            </div>
+            <div class="col-3 back-branco m-1">
+
+                <button type="submit" class="btn btn-primary m-2">Iniciar</button>
+
+            </div>
+
+            <div class="col-3 back-branco">
+
+            </div>
         </div>
-    </div>
+    </form>
+
+    <a class="back-branco" href="/simulador/{{idFranquia}}">
+        <button class="btn btn-danger m-2">Cancelar</button>
+    </a>
+
+    <a class="back-branco" href="/simulador/finalizar/{{idFranquia}}">
+        <button type="submit" class="btn btn-success m-2">Finalizar</button>
+    </a>
 
     {{#if inicio}}
 
@@ -94,12 +95,12 @@
                 <td>{{this.nmJogador}}</td>
                 <td>{{this.posicao}}</td>
                 <td>
-                    <a href="/jogadores/verdetalhes/{{idJog}}" class="back-branco link-sim">
+                    <a href="/jogadores/verdetalhes/{{this.id}}" class="back-branco link-sim">
                         <button type="submit" class="btn btn-danger m-2">Ver Detalhes</button>
                     </a>
                 </td>
                 <td>
-                    <a href="/jogadores/selecionar/{{idJog}}" class="back-branco link-sim">
+                    <a href="/simulador/selecionar/{{this.id}}" class="back-branco link-sim">
                         <button type="submit" class="btn btn-primary m-2">Selecionar</button>
                     </a>
                 </td>

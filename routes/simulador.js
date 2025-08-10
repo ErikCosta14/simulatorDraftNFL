@@ -4,11 +4,10 @@ var controllerSimulador = require('../Controller/controllerSimulador');
 
 /* GET */
 router.get('/:idFranq', controllerSimulador.simuladorGet);
-router.get('iniciar', controllerSimulador.iniciar);
-router.get('/cancelar', controllerSimulador.cancelar);
 router.get('/selecionar/:idJog', controllerSimulador.selecionar);
-router.get('/finalizar')
+router.get('/finalizar/:idFranq', controllerSimulador.finalizar);
 
 /* POST */
+router.post('/iniciar', controllerSimulador.iniciar);
 
 module.exports = router;

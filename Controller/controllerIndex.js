@@ -13,8 +13,8 @@ exports.index = async (req, res) => {
     if(senha != undefined && senha != null && senha != '') {
         conectado = await con.verificaUsuario(usuario, senha);
         var fr = await con.buscarUsuario(usuario);
-            infUser.usuario = usuario
-            infUser.id = fr.id
+        infUser.usuario = usuario
+        infUser.id = fr.id
     }
 
     if (conectado) {

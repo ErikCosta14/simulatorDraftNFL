@@ -3,7 +3,7 @@ const con = require('../Model/conexaoBD');
 exports.carregarHistorico = async (req, res) => {
     var idFranquia = parseInt(req.params.idFranq)
 
-    var simulacoes = con.buscarHistoricos(idFranquia);
+    var simulacoes = await con.buscarHistoricos(idFranquia);
 
     res.render('historico', {title: 'Simulações', idFranquia: idFranquia, simulacoes: simulacoes, franquia:true})
 }
@@ -11,8 +11,8 @@ exports.carregarHistorico = async (req, res) => {
 exports.carregarSimulacao = async (req, res) => {
     var idSimulacao = parseInt(req.params.idSim);
 
-    var simulacao = con.carregarSimulacao(idSimulacao);
-    var picks = con.carregarPick(idSimulacao);
+    var simulacao = await con.carregarSimulacao(idSimulacao);
+    var picks = await con.carregarPick(idSimulacao);
 
     var escolhas = [];
 

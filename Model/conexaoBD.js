@@ -47,7 +47,7 @@ class ConexaoBD {
     async registroJogador(jogador) {
         await conexao_bd()
         const colecao = bd().collection('jogadores');
-        colecao.insertOne(jogador);
+        await colecao.insertOne(jogador);
     }
 
     async buscarJogadores() {
@@ -58,7 +58,7 @@ class ConexaoBD {
     async registroFranquia(franquia) {
         await conexao_bd()
         const colecao = bd().collection('franquias');
-        colecao.insertOne(franquia);
+        await colecao.insertOne(franquia);
     }
 
     async buscarFranquias() {
@@ -81,25 +81,25 @@ class ConexaoBD {
 
     async carregarSimulacao(idSimulacao) {
         await conexao_bd()
-        const colecao = bd.collection('simulacoes');
+        const colecao = bd().collection('simulacoes');
         return await colecao.find({idSimulacao: idSimulacao});
     }
 
     async registarSimulacao(simulacao) {
         await conexao_bd()
-        const colecao = bd.collection('simulacoes');
-        colecao.insertOne(simulacao)
+        const colecao = bd().collection('simulacoes');
+        await colecao.insertOne(simulacao)
     }
 
     async registrarPick(pick) {
         await conexao_bd()
-        const colecao = bd.collection('picks');
-        colecao.insertOne(pick)
+        const colecao = bd().collection('picks');
+        await colecao.insertOne(pick)
     }
 
     async carregarPick(idSimulacao) {
         await conexao_bd()
-        const colecao = bd.collection('simulacoes');
+        const colecao = bd().collection('simulacoes');
         return await colecao.find({idSimulacao: idSimulacao}).toArray();
     }
 }
