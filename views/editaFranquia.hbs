@@ -1,13 +1,13 @@
 <div class="container-fluid back-branco p-3">
 
-    <form action="/edita/franquia/{{franquia.id}}" method="post" enctype="multipart/form-data" class="m-5 back-branco">
+    <form action="/edita/franquias/{{franquiaMostrar.id}}" method="post" enctype="multipart/form-data" class="m-5 back-branco">
         <div class="row g-3 back-branco">
             <div class="col-lg-1 rigth back-branco">
                 <label for="nmFranquia" class="back-branco m-1">Nome:</label>
             </div>
 
             <div class="col-lg-4 back-branco">
-                <input type="text" value="{{franquia.nmFranquia}}" class="form-control back-branco" name="nmFranquia" id="nmFranquia"
+                <input type="text" value="{{franquiaMostrar.nmFranquia}}" class="form-control back-branco" name="nmFranquia" id="nmFranquia"
                     aria-label="nmFranquia" required>
             </div>
 
@@ -16,7 +16,7 @@
             </div>
 
             <div class="col-lg-4 back-branco">
-                <input type="text" value="{{franquia.estado}}" class="form-control back-branco" name="estado" id="estado" aria-label="estado"
+                <input type="text" value="{{franquiaMostrar.estado}}" class="form-control back-branco" name="estado" id="estado" aria-label="estado"
                     required>
             </div>
 
@@ -28,7 +28,7 @@
             </div>
 
             <div class="col-lg-4 back-branco">
-                <input type="text" value="{{franquia.cidade}}" class="form-control back-branco" name="cidade" id="cidade" aria-label="cidade"
+                <input type="text" value="{{franquiaMostrar.cidade}}" class="form-control back-branco" name="cidade" id="cidade" aria-label="cidade"
                     required>
             </div>
 
@@ -72,7 +72,7 @@
             <div class="col-lg-10 mt-1 m-5 back-branco">
                 <textarea class="form-control back-branco" id="descFranquia" name="descFranquia" rows="6"
                     maxlength="110" cols="155" required>
-                    {{franquia.descFranquia}}
+                    {{franquiaMostrar.descFranquia}}
                 </textarea>
             </div>
         </div>
@@ -83,7 +83,7 @@
             </div>
 
             <div class="col-lg-3 back-branco">
-                <input type="file" value="{{franquia.logo}}" name="logo" accept="image/*" class="back-branco" required>
+                <input type="file" name="logo" accept="image/*" class="back-branco">
             </div>
 
         </div>
@@ -91,7 +91,7 @@
         <div class="btn-cad-jog back-branco m-5">
             <button class="btn btn-primary m-2">Registrar</button>
 
-            <a href="/franquias/verdetalhes/{{franquia.id}}" class="back-branco">
+            <a href="/franquias/verdetalhes/{{franquiaMostrar.id}}" class="back-branco">
                 <button class="btn btn-danger m-2">Cancelar</button>
             </a>
         </div>

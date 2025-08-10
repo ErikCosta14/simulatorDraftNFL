@@ -8,10 +8,10 @@ const upload = multer({ storage: storage });
 
 /* GET */
 router.get('/verdetalhes/:idFranq', controllerFranquia.verFranquia);
-// router.get('/editar/:idJog', controllerFranquia.getEditarJog)
-// router.get('/deletar/:idJog', controllerFranquia.deletar)
+router.get('/editar/:idFra', controllerFranquia.getEditarFra)
+router.get('/deletar/:idFra', controllerFranquia.deletar)
 
 /* POST */
-// router.post('/editar/:idJog', upload.single('logo'), controllerFranquia.postEditarJog)
+router.post('/editar/:idFra', upload.single('logo'), controllerFranquia.postEditarFra)
 
 module.exports = router;
