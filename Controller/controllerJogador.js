@@ -105,3 +105,11 @@ exports.postEditarJog = async (req, res) => {
     var red = '/jogadores/verdetalhes/' + id
     res.redirect(red)
 }
+
+exports.deletar = async (req, res) => {
+    var id = parseInt(req.params.idJog)
+
+    await con.deletarJogador(id)
+
+    res.redirect('/jogadores')
+}

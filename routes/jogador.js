@@ -9,6 +9,7 @@ const upload = multer({ storage: storage });
 /* GET */
 router.get('/verdetalhes/:idJog', controllerJogador.verJogador);
 router.get('/editar/:idJog', controllerJogador.getEditarJog)
+router.get('/deletar/:idJog', controllerJogador.deletar)
 
 /* POST */
 router.post('/editar/:idJog', upload.single('imgJog'), controllerJogador.postEditarJog)

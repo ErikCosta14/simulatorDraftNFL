@@ -62,6 +62,17 @@ class ConexaoBD {
         return await colecao.find({id: idJogador}).toArray();
     }
 
+    async deletarJogador(idJogador) {
+        await conexao_bd()
+        const colecao = bd().collection('jogadores');
+        const jog = await colecao.findOne({id: idJogador})
+        if (!jog) {
+            throw new Error(`Não existe jogador com id: ${idJogador}`)
+        } else {
+            await colecao.findOneAndDelete({id: idJogador})
+        }
+    }
+
     async editarJogador(jogador) {
         await conexao_bd()
         const colecao = bd().collection('jogadores');
