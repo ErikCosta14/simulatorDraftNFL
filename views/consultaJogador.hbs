@@ -17,20 +17,20 @@
 
 <div class="btn-container m-5">
     <div class="back-branco m-2">
-        <a href="/">
+        <a href="/jogadores">
             <button class="btn btn-secondary">Voltar</button>
         </a>
     </div>
 
     {{#if admin}}
     <div class="back-branco m-2">
-        <a href="/">
+        <a href="/edita/jogador/{{jogador.idJog}}">
             <button class="btn btn-warning">Editar</button>
         </a>
     </div>
 
     <div class="back-branco m-2">
-        <a href="/">
+        <a href="/deletar/{{jogador.idJog}}">
             <button class="btn btn-danger">Deletar</button>
         </a>
     </div>

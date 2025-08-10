@@ -1,6 +1,8 @@
-<h3 class="m-5 back-branco red">HISTÓRICO DE SIMULAÇÕES </h3>
+<div class="back-branco p-5">
 
-{{#if simulacao.length}}
+    <h3 class="m-5 back-branco red">HISTÓRICO DE SIMULAÇÕES </h3>
+
+    {{#if simulacao.length}}
     <table class="table table-hover table-bordered back-branco table-sim mt-5 mb-5">
         <thead>
             <tr class="table-primary">
@@ -10,15 +12,17 @@
             </tr>
         </thead>
         {{#each simulacao}}
-            <tbody>
-                <tr class="back-branco">
-                    <td><a href="/historico/simulacao/{{this.idSimulacao}}" class="back-branco link-sim">{{this.nmSimulacao}}</a></td>
-                    <td>{{this.rodadas}}</td>
-                    <td>{{this.numJogs}}</td>
-                </tr>
-            </tbody>
+        <tbody>
+            <tr class="back-branco">
+                <td><a href="/historico/simulacao/{{this.idSimulacao}}"
+                        class="back-branco link-sim">{{this.nmSimulacao}}</a></td>
+                <td>{{this.rodadas}}</td>
+                <td>{{this.numJogs}}</td>
+            </tr>
+        </tbody>
         {{/each}}
     </table>
-{{else}}
-    <p>Ainda não foram feitas simulações.</p>
-{{/if}}
+    {{else}}
+    <h4 class="display-4 red">Ainda não foram feitas simulações.</h4>
+    {{/if}}
+</div>
