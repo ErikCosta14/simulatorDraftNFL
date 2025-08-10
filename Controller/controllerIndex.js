@@ -66,3 +66,52 @@ exports.index = async (req, res) => {
         res.render('login', { title: 'Tela de Login', franquia:false });
     }
 }
+
+
+exports.jogadores = async (req, res) => {
+    var jogs = await con.buscarJogadores()
+
+    const jogadoresComImagem = jogs.map(jogador => {
+        if (jogador.imgJog && jogador.imgJog.data) {
+            const base64Image = jogador.imgJog.data.toString('base64');
+            return {
+                ...jogador,
+                imgJog: `data:${jogador.imgJog.contentType};base64,${base64Image}`
+            };
+        }
+        return jogador;
+    });
+
+    pagInfo = {
+        title: "Jogadores",
+        idFranquia: infUser.id,
+        franquia: user,
+        jogadores: jogadoresComImagem
+    }
+
+    res.render('jogadores', pagInfo)
+}
+
+exports.franquias = async (req, res) => {
+    var franq = await con.buscarFranquias()
+
+    const franquiasComImagem = franq.map(franquia => {
+        if(franquia.logo && franquia.logo.data) {
+            const base64Image = franquia.logo.data.toString('base64');
+            return {
+                ...franquia,
+                logo: `data:${franquia.logo.contentType};base64,${base64Image}`
+            }
+        }
+        return franquia;
+    });
+    
+    pagInfo = {
+        title: "Franquias",
+        idFranquia: infUser.id,
+        franquia: user,
+        franquias: franquiasComImagem
+    }
+
+    res.render('franquias', pagInfo)
+}

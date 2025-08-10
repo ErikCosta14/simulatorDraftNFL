@@ -10,6 +10,7 @@ var cadastroRouter = require('./routes/cadastro');
 var historicoRouter = require('./routes/historico');
 var simuladorRouter = require('./routes/simulador');
 var apiRouter = require('./routes/api');
+var jogadorRouter = require('./routes/jogador');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/cadastro', cadastroRouter);
 app.use('/historico', historicoRouter);
 app.use('/simulador', simuladorRouter);
 app.use('/api', apiRouter);
+app.use('/jogadores', jogadorRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
