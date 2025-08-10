@@ -55,6 +55,13 @@ class ConexaoBD {
         const colecao = bd().collection('jogadores');
         return await colecao.find().toArray();
     }
+
+    async carregarJogador(idJogador) {
+        await conexao_bd()
+        const colecao = bd().collection('jogadores');
+        return await colecao.find({id: idJogador}).toArray();
+    }
+
     async registroFranquia(franquia) {
         await conexao_bd()
         const colecao = bd().collection('franquias');
@@ -71,6 +78,12 @@ class ConexaoBD {
         await conexao_bd()
         const colecao = bd().collection('franquias');
         return await colecao.find({nmFranquia: nmFranquia})
+    }
+
+    async carregarFranquiaId(idFranquia) {
+        await conexao_bd()
+        const colecao = bd().collection('franquias');
+        return await colecao.find({id: idFranquia}).toArray();
     }
 
     async buscarHistoricos(idFranquia) {
