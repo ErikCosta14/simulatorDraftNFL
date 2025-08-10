@@ -223,6 +223,14 @@ textarea{
     width: 300px;
 }
 
+.btn-card-simulator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fcfdfe;
+}
+
 
 footer{
     width: 100%;
