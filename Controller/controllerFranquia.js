@@ -7,8 +7,8 @@ exports.verFranquia = async (req, res) => {
     var fra = await con.carregarFranquiaId(idFran)
 
     var usuarioLog = await infUser.getUsuario()
-    var franq = false;
-    var adm = true;
+    var franq = true;
+    var adm = false;
 
     if(usuarioLog.usuario == "admin") {
         franq = false;
@@ -28,10 +28,11 @@ exports.verFranquia = async (req, res) => {
 
     var pagInfo = {
         title: "Detalhes ",
-        franquia: false,
+        franquia: franq,
         idFranquia: usuarioLog.id,
         franquiaMostrar: franquiaComImagem[0],
-        admin: true
+        admin: adm,
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('consultaFranquia', pagInfo)
@@ -60,6 +61,7 @@ exports.getEditarFra = async (req, res) => {
         franquia: false,
         idFranquia: usuarioLog.id,
         franquiaMostrar: franquiasComImagem[0],
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('editaFranquia', pageInfo)

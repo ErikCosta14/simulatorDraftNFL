@@ -1,7 +1,8 @@
 const con = require('../Model/conexaoBD');
+const infUser = require('../Model/infoConect')
 
-exports.cadastroJogGet = (req, res) => {
-    res.render('cadastroJogador', { title: 'Cadastro de Jogador', franquia:false});
+exports.cadastroJogGet = async (req, res) => {
+   res.render('cadastroJogador', { title: 'Cadastro de Jogador', franquia:false, nmUsuario: await infUser.getNmUsuario()});
 }
 
 exports.cadastroJogPost = (req, res) => {
@@ -31,8 +32,8 @@ exports.cadastroJogPost = (req, res) => {
     res.redirect('/')
 }
 
-exports.cadastroFraGet = (req, res) => {
-    res.render('cadastroFranquia', { title: 'Cadastro de Jogador', franquia:false});
+exports.cadastroFraGet = async (req, res) => {
+    res.render('cadastroFranquia', { title: 'Cadastro de Jogador', franquia:false, nmUsuario: await infUser.getNmUsuario()});
 }
 
 exports.cadastroFraPost = (req, res) => {

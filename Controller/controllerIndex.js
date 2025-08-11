@@ -66,7 +66,27 @@ exports.index = async (req, res) => {
         var usuarioLog = await infUser.getUsuario()
         var idFr = usuarioLog.id
 
-        res.render('index', { title: 'Tela Inicial', jogadores: jogs, franquias: fran, franquia:user, idFranquia: idFr});
+        var existeFr = await con.carregarFranquiaId(idFr)
+        var nmUser;
+        
+        if (existeFr.length > 0) {
+            nmUser = existeFr[0].nmFranquia
+        } else {
+            nmUser = "Administrador"
+        }
+
+        await infUser.setNmUsuario(nmUser)
+
+        var pagInfo = {
+            title: 'Tela Inicial', 
+            jogadores: jogs, 
+            franquias: fran, 
+            franquia: user, 
+            idFranquia: idFr,
+            nmUsuario: await infUser.getNmUsuario()
+        }
+
+        res.render('index', pagInfo);
     } else {
         res.render('login', { title: 'Tela de Login', franquia:false });
     }
@@ -94,7 +114,8 @@ exports.jogadores = async (req, res) => {
         title: "Jogadores",
         idFranquia: idFr,
         franquia: user,
-        jogadores: jogadoresComImagem
+        jogadores: jogadoresComImagem,
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('jogadores', pagInfo)
@@ -121,7 +142,8 @@ exports.franquias = async (req, res) => {
         title: "Franquias",
         idFranquia: idFr,
         franquia: user,
-        franquias: franquiasComImagem
+        franquias: franquiasComImagem,
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('franquias', pagInfo)

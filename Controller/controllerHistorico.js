@@ -1,11 +1,12 @@
 const con = require('../Model/conexaoBD');
+const infUser = require('../Model/infoConect')
 
 exports.carregarHistorico = async (req, res) => {
     var idFranquia = parseInt(req.params.idFranq)
 
     var simulacoes = await con.buscarHistoricos(idFranquia);
 
-    res.render('historico', {title: 'Simulações', idFranquia: idFranquia, simulacao: simulacoes, franquia:true})
+    res.render('historico', {title: 'Simulações', idFranquia: idFranquia, simulacao: simulacoes, franquia:true, nmUsuario: await infUser.getNmUsuario()})
 }
 
 exports.carregarSimulacao = async (req, res) => {
@@ -38,7 +39,8 @@ exports.carregarSimulacao = async (req, res) => {
         nmSimulacao: simulacao[0].nmSimulacao, 
         idFranquia: simulacao[0].idFranquia,
         escolhas: escolhas, 
-        franquia: true
+        franquia: true,
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('simulacao', infoPag)

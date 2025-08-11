@@ -31,7 +31,8 @@ exports.verJogador = async (req, res) => {
         franquia: franq,
         idFranquia: usuarioLog.id,
         jogador: jogadorComImagem[0],
-        admin: adm
+        admin: adm,
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('consultaJogador', pagInfo)
@@ -60,6 +61,7 @@ exports.getEditarJog = async (req, res) => {
         franquia: false,
         idFranquia: usuarioLog.id,
         jogador: jogadorComImagem[0],
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('editaJogador', pageInfo)

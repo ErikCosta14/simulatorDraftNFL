@@ -26,7 +26,8 @@ exports.simuladorGet = async (req, res) => {
         jogadores: jogNoSelect, 
         picksIniciais: picksIniciais,
         todasPicks: todasPicks,
-        franquia: true
+        franquia: true,
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('simulador', pagInfo)
@@ -57,7 +58,8 @@ exports.cancelar = async (req, res) => {
         jogadores: jogNoSelect, 
         picksIniciais: picksIniciais,
         todasPicks: todasPicks,
-        franquia: true
+        franquia: true,
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('simulador', pagInfo)
@@ -122,7 +124,8 @@ exports.iniciar = async (req, res) => {
         jogadores: jogNoSelect,  
         picksIniciais: picksIniciais,
         todasPicks: todasPicks,
-        franquia: true
+        franquia: true,
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('simulador', pagInfo)
@@ -154,7 +157,8 @@ exports.selecionar = async (req, res) => {
         jogadores: jogNoSelect,  
         picksIniciais: picksIniciais,
         todasPicks: todasPicks,
-        franquia: true
+        franquia: true,
+        nmUsuario: await infUser.getNmUsuario()
     }
 
     res.render('simulador', pagInfo)
