@@ -19,7 +19,6 @@ exports.index = async (req, res) => {
     }
 
     if (conectado) {
-        console.log(usuario)
         if (usuario != "admin") {
             user = true
         }
@@ -83,12 +82,13 @@ exports.index = async (req, res) => {
             franquias: fran, 
             franquia: user, 
             idFranquia: idFr,
-            nmUsuario: await infUser.getNmUsuario()
+            nmUsuario: await infUser.getNmUsuario(),
+            conectado: true
         }
 
         res.render('index', pagInfo);
     } else {
-        res.render('login', { title: 'Tela de Login', franquia:false });
+        res.render('login', { title: 'Tela de Login', franquia:false, conectado: false});
     }
 }
 
@@ -115,7 +115,8 @@ exports.jogadores = async (req, res) => {
         idFranquia: idFr,
         franquia: user,
         jogadores: jogadoresComImagem,
-        nmUsuario: await infUser.getNmUsuario()
+        nmUsuario: await infUser.getNmUsuario(),
+        conectado: true
     }
 
     res.render('jogadores', pagInfo)
@@ -143,8 +144,18 @@ exports.franquias = async (req, res) => {
         idFranquia: idFr,
         franquia: user,
         franquias: franquiasComImagem,
-        nmUsuario: await infUser.getNmUsuario()
+        nmUsuario: await infUser.getNmUsuario(),
+        conectado: true
     }
 
     res.render('franquias', pagInfo)
+}
+
+exports.sair = async (req, res) => {
+    conectado = false;
+    usuario = "";
+    senha = "";
+    user = false;
+
+    res.redirect('/')
 }

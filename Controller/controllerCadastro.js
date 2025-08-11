@@ -2,7 +2,7 @@ const con = require('../Model/conexaoBD');
 const infUser = require('../Model/infoConect')
 
 exports.cadastroJogGet = async (req, res) => {
-   res.render('cadastroJogador', { title: 'Cadastro de Jogador', franquia:false, nmUsuario: await infUser.getNmUsuario()});
+   res.render('cadastroJogador', { title: 'Cadastro de Jogador', franquia:false, nmUsuario: await infUser.getNmUsuario(), conectado: true});
 }
 
 exports.cadastroJogPost = (req, res) => {
@@ -33,7 +33,7 @@ exports.cadastroJogPost = (req, res) => {
 }
 
 exports.cadastroFraGet = async (req, res) => {
-    res.render('cadastroFranquia', { title: 'Cadastro de Jogador', franquia:false, nmUsuario: await infUser.getNmUsuario()});
+    res.render('cadastroFranquia', { title: 'Cadastro de Jogador', franquia:false, nmUsuario: await infUser.getNmUsuario(), conectado: true});
 }
 
 exports.cadastroFraPost = (req, res) => {

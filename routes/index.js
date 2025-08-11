@@ -6,6 +6,7 @@ var controllerIndex = require('../Controller/controllerIndex');
 router.get('/', controllerIndex.index);
 router.get('/jogadores', controllerIndex.jogadores);
 router.get('/franquias', controllerIndex.franquias);
+router.get('/sair', controllerIndex.sair)
 
 /* POST */
 router.post('/', controllerIndex.index);

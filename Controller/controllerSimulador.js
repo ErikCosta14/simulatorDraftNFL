@@ -27,7 +27,8 @@ exports.simuladorGet = async (req, res) => {
         picksIniciais: picksIniciais,
         todasPicks: todasPicks,
         franquia: true,
-        nmUsuario: await infUser.getNmUsuario()
+        nmUsuario: await infUser.getNmUsuario(),
+        conectado: true
     }
 
     res.render('simulador', pagInfo)
@@ -59,7 +60,8 @@ exports.cancelar = async (req, res) => {
         picksIniciais: picksIniciais,
         todasPicks: todasPicks,
         franquia: true,
-        nmUsuario: await infUser.getNmUsuario()
+        nmUsuario: await infUser.getNmUsuario(),
+        conectado: true
     }
 
     res.render('simulador', pagInfo)
@@ -125,7 +127,8 @@ exports.iniciar = async (req, res) => {
         picksIniciais: picksIniciais,
         todasPicks: todasPicks,
         franquia: true,
-        nmUsuario: await infUser.getNmUsuario()
+        nmUsuario: await infUser.getNmUsuario(),
+        conectado: true
     }
 
     res.render('simulador', pagInfo)
@@ -158,7 +161,8 @@ exports.selecionar = async (req, res) => {
         picksIniciais: picksIniciais,
         todasPicks: todasPicks,
         franquia: true,
-        nmUsuario: await infUser.getNmUsuario()
+        nmUsuario: await infUser.getNmUsuario(),
+        conectado: true
     }
 
     res.render('simulador', pagInfo)
@@ -203,7 +207,7 @@ exports.finalizar = async (req, res) => {
             idSimulacao: idSim,
             nmSimulacao: nomeSim,
             rodadas: rod,
-            numJogs: jogSelect.length,
+            numJogs: jogSelect.length
         }
     
         await con.registarSimulacao(simulacao)

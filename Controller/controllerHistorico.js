@@ -6,7 +6,7 @@ exports.carregarHistorico = async (req, res) => {
 
     var simulacoes = await con.buscarHistoricos(idFranquia);
 
-    res.render('historico', {title: 'Simulações', idFranquia: idFranquia, simulacao: simulacoes, franquia:true, nmUsuario: await infUser.getNmUsuario()})
+    res.render('historico', {title: 'Simulações', idFranquia: idFranquia, simulacao: simulacoes, franquia:true, nmUsuario: await infUser.getNmUsuario(), conectado: true})
 }
 
 exports.carregarSimulacao = async (req, res) => {
@@ -40,7 +40,8 @@ exports.carregarSimulacao = async (req, res) => {
         idFranquia: simulacao[0].idFranquia,
         escolhas: escolhas, 
         franquia: true,
-        nmUsuario: await infUser.getNmUsuario()
+        nmUsuario: await infUser.getNmUsuario(),
+        conectado: true
     }
 
     res.render('simulacao', infoPag)
