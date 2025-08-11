@@ -20,20 +20,20 @@
     <div class="btn-container m-5">
         <div class="back-branco m-2">
             <a href="/franquias">
-                <button class="btn btn-secondary">Voltar</button>
+                <button class="btn btn-secondary">Voltar <i class="bi bi-arrow-return-left"></i></button>
             </a>
         </div>
 
         {{#if admin}}
         <div class="back-branco m-2">
             <a href="/franquias/editar/{{franquiaMostrar.id}}">
-                <button class="btn btn-warning">Editar</button>
+                <button class="btn btn-warning">Editar <i class="bi bi-pencil-square"></i></button>
             </a>
         </div>
 
         <div class="back-branco m-2">
             <a href="/franquias/deletar/{{franquiaMostrar.id}}">
-                <button class="btn btn-danger">Deletar</button>
+                <button class="btn btn-danger">Deletar <i class="bi bi-trash3"></i></button>
             </a>
         </div>
         {{/if}}

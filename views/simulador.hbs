@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="col-2 back-branco">
-                    <button type="submit" class="btn btn-primary ">Iniciar</button>
+                    <button type="submit" class="btn btn-primary ">Iniciar <i class="bi bi-caret-right-fill"></i><i class="bi bi-caret-right-fill"></i><i class="bi bi-caret-right-fill"></i></button>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
 
                 <div class="btn-card-simulator">
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Ver Todos
+                        Ver Todos <i class="bi bi-eye-fill"></i>
                     </button>
                 </div>
 
@@ -55,7 +55,7 @@
                         </ol>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar <i class="bi bi-x-circle-fill"></i></button>
                     </div>
                 </div>
             </div>
@@ -80,12 +80,12 @@
                     <td>{{this.posicao}}</td>
                     <td>
                         <a href="/jogadores/verdetalhes/{{this.id}}" class="back-branco link-sim">
-                            <button type="submit" class="btn btn-danger m-2">Ver Detalhes</button>
+                            <button type="submit" class="btn btn-danger m-2">Ver Detalhes <i class="bi bi-eye-fill"></i></button>
                         </a>
                     </td>
                     <td>
                         <a href="/simulador/selecionar/{{this.id}}" class="back-branco link-sim">
-                            <button type="submit" class="btn btn-primary m-2">Selecionar</button>
+                            <button type="submit" class="btn btn-primary m-2">Selecionar <i class="bi bi-check-all"></i></button>
                         </a>
                     </td>
                 </tr>
@@ -100,13 +100,13 @@
         <div class="btn-container">
             <div class="back-branco m-2">
                 <a href="/simulador/cancelar/{{idFranquia}}">
-                    <button class="btn btn-danger" >Cancelar</button>
+                    <button class="btn btn-danger" >Cancelar <i class="bi bi-x-circle-fill"></i></button>
                 </a>
             </div>
 
             <div class="back-branco m-2">
                 <a href="/simulador/finalizar/{{idFranquia}}">
-                    <button class="btn btn-success">Finalizar</button>
+                    <button class="btn btn-success">Finalizar <i class="bi bi-file-earmark-check-fill"></i></button>
                 </a>
             </div>
 
